@@ -1,0 +1,54 @@
+{
+  "name": "SeatGeek Event Structure",
+  "description": "Structural documentation for a SeatGeek live event",
+  "properties": {
+    "id": { "type": "integer", "description": "Unique SeatGeek event ID" },
+    "title": { "type": "string", "description": "Full event title" },
+    "short_title": { "type": "string", "description": "Abbreviated title" },
+    "datetime_utc": { "type": "string", "description": "Event datetime in UTC (ISO 8601)" },
+    "datetime_local": { "type": "string", "description": "Event datetime in local timezone" },
+    "datetime_tbd": { "type": "boolean", "description": "Whether time is still to be determined" },
+    "status": { "type": "string", "description": "Event status: normal, cancelled, rescheduled, contingent" },
+    "type": { "type": "string", "description": "Event type classification" },
+    "score": { "type": "number", "description": "SeatGeek popularity score (0-100)" },
+    "url": { "type": "string", "description": "SeatGeek ticket purchase URL" },
+    "venue": {
+      "type": "object",
+      "description": "Venue where the event is held",
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "country": { "type": "string" },
+        "address": { "type": "string" },
+        "location": {
+          "lat": { "type": "number" },
+          "lon": { "type": "number" }
+        }
+      }
+    },
+    "performers": {
+      "type": "array",
+      "description": "Artists or teams performing at the event",
+      "items": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "type": { "type": "string" },
+        "score": { "type": "number" }
+      }
+    },
+    "stats": {
+      "type": "object",
+      "description": "Ticket pricing statistics",
+      "properties": {
+        "listing_count": { "type": "integer" },
+        "average_price": { "type": "number" },
+        "lowest_price": { "type": "number" },
+        "highest_price": { "type": "number" },
+        "median_price": { "type": "number" }
+      }
+    }
+  }
+}

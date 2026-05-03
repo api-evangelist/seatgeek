@@ -1,0 +1,67 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.seatgeek.com/2/events?q=Taylor+Swift&per_page=5&page=1&client_id=your_client_id",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "events": [
+        {
+          "id": 5924012,
+          "title": "Taylor Swift",
+          "short_title": "Taylor Swift",
+          "datetime_utc": "2026-07-15T00:00:00",
+          "datetime_local": "2026-07-14T20:00:00",
+          "datetime_tbd": false,
+          "status": "normal",
+          "type": "concert",
+          "score": 98.5,
+          "url": "https://seatgeek.com/taylor-swift-tickets/2026-07-14-8-pm/5924012",
+          "venue": {
+            "id": 123,
+            "name": "SoFi Stadium",
+            "city": "Inglewood",
+            "state": "CA",
+            "country": "US",
+            "address": "1000 S Prairie Ave",
+            "postal_code": "90301",
+            "location": {
+              "lat": 33.9535,
+              "lon": -118.3392
+            }
+          },
+          "performers": [
+            {
+              "id": 2345,
+              "name": "Taylor Swift",
+              "slug": "taylor-swift",
+              "type": "band",
+              "score": 99.1
+            }
+          ],
+          "taxonomies": [
+            {
+              "id": 2000000,
+              "name": "concert"
+            }
+          ],
+          "stats": {
+            "listing_count": 1542,
+            "average_price": 385.50,
+            "lowest_price": 125.00,
+            "highest_price": 4500.00,
+            "median_price": 295.00
+          }
+        }
+      ],
+      "meta": {
+        "total": 12,
+        "took": 45.3,
+        "page": 1,
+        "per_page": 5
+      }
+    }
+  }
+}

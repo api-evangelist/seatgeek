@@ -1,0 +1,78 @@
+name: SeatGeek Vocabulary
+description: >-
+  Vocabulary and taxonomy for the SeatGeek live events platform covering events, performers,
+  venues, ticketing, taxonomy, and the developer API.
+created: '2026-05-02'
+modified: '2026-05-02'
+terms:
+  - term: Event
+    definition: >-
+      A live performance, game, or show with a specific date, time, and venue. Events
+      are the primary entity in the SeatGeek platform and the main subject of ticket listings.
+    tags: [Core Entity, Live Events]
+
+  - term: Performer
+    definition: >-
+      An artist, band, sports team, theatrical company, or other entity that performs
+      at events. Performers are associated with genres and taxonomies.
+    tags: [Core Entity, Entertainment]
+
+  - term: Venue
+    definition: >-
+      A physical location where events take place, characterized by name, address,
+      city, state, capacity, and geographic coordinates.
+    tags: [Core Entity, Location]
+
+  - term: Taxonomy
+    definition: >-
+      A hierarchical classification system for events and performers. Top-level taxonomies
+      include concert, sports, theater, and comedy.
+    tags: [Classification, Discovery]
+
+  - term: Listing
+    definition: >-
+      A specific ticket offering for sale on SeatGeek, associated with a section, row,
+      seat, price, and seller. Events can have thousands of listings.
+    tags: [Tickets, Commerce]
+
+  - term: Score
+    definition: >-
+      A SeatGeek-calculated popularity score (0-100) for events and performers based
+      on historical demand, search volume, and ticket sales data.
+    tags: [Discovery, Algorithm]
+
+  - term: Client ID
+    definition: >-
+      The authentication credential required for all SeatGeek Platform API requests.
+      Passed as a query parameter (client_id) or via HTTP Basic Auth.
+    tags: [Authentication, API]
+
+  - term: Slug
+    definition: >-
+      A URL-friendly string identifier for performers and venues (e.g., "taylor-swift",
+      "msg"). Used for filtering and direct lookups.
+    tags: [Identifier, API]
+
+  - term: Geolocation
+    definition: >-
+      Location-based filtering in the SeatGeek API using latitude/longitude coordinates
+      and a range parameter (e.g., "25mi") to find nearby events and venues.
+    tags: [Discovery, Location]
+
+  - term: Recommendation
+    definition: >-
+      A personalized event suggestion from SeatGeek based on seed performers or events
+      and user geolocation. Requires API key access.
+    tags: [Personalization, Discovery]
+
+  - term: Platform
+    definition: >-
+      The SeatGeek developer ecosystem including the REST API, Partner Program, event
+      data, and developer support community for building on top of SeatGeek.
+    tags: [Developer, API]
+
+  - term: Seat Map
+    definition: >-
+      A visual representation of available seating in a venue, accessible via the
+      SeatGeek Platform for presenting seat selection to end users.
+    tags: [UX, Tickets]

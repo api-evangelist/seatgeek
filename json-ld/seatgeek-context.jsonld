@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "seatgeek": "https://seatgeek.com/vocab/",
+    "Event": "schema:Event",
+    "Performer": "schema:PerformingGroup",
+    "Venue": "schema:EventVenue",
+    "Taxonomy": "schema:Thing",
+    "id": "@id",
+    "title": "schema:name",
+    "short_title": "schema:alternateName",
+    "datetime_utc": "schema:startDate",
+    "datetime_local": "seatgeek:localDateTime",
+    "datetime_tbd": "seatgeek:dateTimeTBD",
+    "status": "schema:eventStatus",
+    "url": "schema:url",
+    "score": "seatgeek:popularityScore",
+    "venue": {
+      "@id": "schema:location",
+      "@type": "schema:EventVenue"
+    },
+    "performers": {
+      "@id": "schema:performer",
+      "@container": "@set"
+    },
+    "taxonomies": {
+      "@id": "schema:genre",
+      "@container": "@set"
+    },
+    "stats": "seatgeek:ticketStats",
+    "listing_count": "seatgeek:listingCount",
+    "average_price": "schema:price",
+    "lowest_price": "seatgeek:lowestPrice",
+    "highest_price": "seatgeek:highestPrice",
+    "city": "schema:addressLocality",
+    "state": "schema:addressRegion",
+    "country": "schema:addressCountry",
+    "address": "schema:streetAddress",
+    "postal_code": "schema:postalCode",
+    "lat": "schema:latitude",
+    "lon": "schema:longitude",
+    "slug": "schema:identifier",
+    "capacity": "schema:maximumAttendeeCapacity",
+    "genres": {
+      "@id": "schema:genre",
+      "@container": "@set"
+    }
+  }
+}

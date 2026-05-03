@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/seatgeek/refs/heads/main/json-schema/seatgeek-event-schema.json",
+  "title": "SeatGeek Event",
+  "description": "A live event in the SeatGeek platform including performers, venue, taxonomy, and ticket pricing statistics.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique SeatGeek event identifier"
+    },
+    "title": {
+      "type": "string",
+      "description": "Full event title"
+    },
+    "short_title": {
+      "type": "string",
+      "description": "Abbreviated event title"
+    },
+    "datetime_utc": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Event datetime in UTC"
+    },
+    "datetime_local": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Event datetime in local venue timezone"
+    },
+    "datetime_tbd": {
+      "type": "boolean",
+      "description": "Whether the exact time is still to be determined"
+    },
+    "status": {
+      "type": "string",
+      "description": "Event status",
+      "enum": ["normal", "cancelled", "rescheduled", "contingent"]
+    },
+    "type": {
+      "type": "string",
+      "description": "Event type classification"
+    },
+    "score": {
+      "type": "number",
+      "description": "SeatGeek popularity score"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "SeatGeek event page URL for ticket purchase"
+    },
+    "venue": {
+      "$ref": "#/$defs/Venue"
+    },
+    "performers": {
+      "type": "array",
+      "description": "Performers appearing at the event",
+      "items": {
+        "$ref": "#/$defs/Performer"
+      }
+    },
+    "taxonomies": {
+      "type": "array",
+      "description": "Event taxonomy categories",
+      "items": {
+        "$ref": "#/$defs/Taxonomy"
+      }
+    },
+    "stats": {
+      "type": "object",
+      "description": "Ticket pricing statistics",
+      "properties": {
+        "listing_count": { "type": "integer" },
+        "average_price": { "type": "number" },
+        "lowest_price": { "type": "number" },
+        "highest_price": { "type": "number" },
+        "median_price": { "type": "number" }
+      }
+    }
+  },
+  "required": ["id", "title", "datetime_utc"],
+  "$defs": {
+    "Venue": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "country": { "type": "string" },
+        "address": { "type": "string" },
+        "postal_code": { "type": "string" },
+        "location": {
+          "type": "object",
+          "properties": {
+            "lat": { "type": "number" },
+            "lon": { "type": "number" }
+          }
+        }
+      }
+    },
+    "Performer": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "type": { "type": "string" },
+        "image": { "type": "string", "format": "uri" },
+        "score": { "type": "number" }
+      }
+    },
+    "Taxonomy": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "parent_id": { "type": "integer", "nullable": true }
+      }
+    }
+  }
+}

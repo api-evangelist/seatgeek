@@ -40,7 +40,7 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2026-05-02'
-modified: '2026-05-02'
+modified: '2026-05-19'
 position: Consuming
 description: >-
   SeatGeek is a live event ticketing and discovery platform that aggregates ticket
@@ -90,3 +90,6 @@ common:
     type: NaftikoCapability
   - url: vocabulary/seatgeek-vocabulary.yml
     type: Vocabulary
+  - name: MCP Server
+    url: https://github.com/seatgeek/mcp-pdb
+    type: MCPServer

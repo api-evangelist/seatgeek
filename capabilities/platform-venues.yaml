@@ -1,0 +1,188 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SeatGeek Platform API — Venues
+  description: 'SeatGeek Platform API — Venues. 2 operations. Lead operation: List Venues. Self-contained Naftiko capability
+    covering one Seatgeek business surface.'
+  tags:
+  - Seatgeek
+  - Venues
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SEATGEEK_API_KEY: SEATGEEK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-venues
+    baseUri: https://api.seatgeek.com/2
+    description: SeatGeek Platform API — Venues business capability. Self-contained, no shared references.
+    resources:
+    - name: venues
+      path: /venues
+      operations:
+      - name: listvenues
+        method: GET
+        description: List Venues
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: city
+          in: query
+          type: string
+          description: Filter by city name
+        - name: state
+          in: query
+          type: string
+          description: Filter by US state abbreviation
+        - name: country
+          in: query
+          type: string
+          description: Filter by country code
+        - name: postal_code
+          in: query
+          type: string
+          description: Filter by postal code
+        - name: q
+          in: query
+          type: string
+          description: Text search query
+        - name: id
+          in: query
+          type: string
+          description: Venue ID (comma-separated for multiple)
+        - name: geoip
+          in: query
+          type: boolean
+        - name: lat
+          in: query
+          type: number
+        - name: lon
+          in: query
+          type: number
+        - name: range
+          in: query
+          type: string
+        - name: per_page
+          in: query
+          type: integer
+        - name: page
+          in: query
+          type: integer
+        - name: sort
+          in: query
+          type: string
+    - name: venues-venue_id
+      path: /venues/{venue_id}
+      operations:
+      - name: getvenue
+        method: GET
+        description: Get Venue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: venue_id
+          in: path
+          type: integer
+          description: SeatGeek venue ID
+          required: true
+    authentication:
+      type: apikey
+      key: client_id
+      value: '{{env.SEATGEEK_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: platform-venues-rest
+    port: 8080
+    description: REST adapter for SeatGeek Platform API — Venues. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/venues
+      name: venues
+      description: REST surface for venues.
+      operations:
+      - method: GET
+        name: listvenues
+        description: List Venues
+        call: platform-venues.listvenues
+        with:
+          city: rest.city
+          state: rest.state
+          country: rest.country
+          postal_code: rest.postal_code
+          q: rest.q
+          id: rest.id
+          geoip: rest.geoip
+          lat: rest.lat
+          lon: rest.lon
+          range: rest.range
+          per_page: rest.per_page
+          page: rest.page
+          sort: rest.sort
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/venues/{venue-id}
+      name: venues-venue-id
+      description: REST surface for venues-venue_id.
+      operations:
+      - method: GET
+        name: getvenue
+        description: Get Venue
+        call: platform-venues.getvenue
+        with:
+          venue_id: rest.venue_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-venues-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SeatGeek Platform API — Venues. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-venues
+      description: List Venues
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-venues.listvenues
+      with:
+        city: tools.city
+        state: tools.state
+        country: tools.country
+        postal_code: tools.postal_code
+        q: tools.q
+        id: tools.id
+        geoip: tools.geoip
+        lat: tools.lat
+        lon: tools.lon
+        range: tools.range
+        per_page: tools.per_page
+        page: tools.page
+        sort: tools.sort
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-venue
+      description: Get Venue
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-venues.getvenue
+      with:
+        venue_id: tools.venue_id
+      outputParameters:
+      - type: object
+        mapping: $.

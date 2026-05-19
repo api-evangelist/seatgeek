@@ -1,0 +1,162 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SeatGeek Platform API — Performers
+  description: 'SeatGeek Platform API — Performers. 2 operations. Lead operation: List Performers. Self-contained Naftiko
+    capability covering one Seatgeek business surface.'
+  tags:
+  - Seatgeek
+  - Performers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SEATGEEK_API_KEY: SEATGEEK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-performers
+    baseUri: https://api.seatgeek.com/2
+    description: SeatGeek Platform API — Performers business capability. Self-contained, no shared references.
+    resources:
+    - name: performers
+      path: /performers
+      operations:
+      - name: listperformers
+        method: GET
+        description: List Performers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: slug
+          in: query
+          type: string
+          description: Performer slug identifier
+        - name: q
+          in: query
+          type: string
+          description: Text search query
+        - name: id
+          in: query
+          type: string
+          description: Performer ID (comma-separated for multiple)
+        - name: taxonomies.name
+          in: query
+          type: string
+          description: Filter by taxonomy name
+        - name: genres.name
+          in: query
+          type: string
+          description: Filter by genre name
+        - name: per_page
+          in: query
+          type: integer
+        - name: page
+          in: query
+          type: integer
+        - name: sort
+          in: query
+          type: string
+    - name: performers-performer_id
+      path: /performers/{performer_id}
+      operations:
+      - name: getperformer
+        method: GET
+        description: Get Performer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: performer_id
+          in: path
+          type: integer
+          description: SeatGeek performer ID
+          required: true
+    authentication:
+      type: apikey
+      key: client_id
+      value: '{{env.SEATGEEK_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: platform-performers-rest
+    port: 8080
+    description: REST adapter for SeatGeek Platform API — Performers. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/performers
+      name: performers
+      description: REST surface for performers.
+      operations:
+      - method: GET
+        name: listperformers
+        description: List Performers
+        call: platform-performers.listperformers
+        with:
+          slug: rest.slug
+          q: rest.q
+          id: rest.id
+          taxonomies.name: rest.taxonomies.name
+          genres.name: rest.genres.name
+          per_page: rest.per_page
+          page: rest.page
+          sort: rest.sort
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/performers/{performer-id}
+      name: performers-performer-id
+      description: REST surface for performers-performer_id.
+      operations:
+      - method: GET
+        name: getperformer
+        description: Get Performer
+        call: platform-performers.getperformer
+        with:
+          performer_id: rest.performer_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-performers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SeatGeek Platform API — Performers. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-performers
+      description: List Performers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-performers.listperformers
+      with:
+        slug: tools.slug
+        q: tools.q
+        id: tools.id
+        taxonomies.name: tools.taxonomies.name
+        genres.name: tools.genres.name
+        per_page: tools.per_page
+        page: tools.page
+        sort: tools.sort
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-performer
+      description: Get Performer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-performers.getperformer
+      with:
+        performer_id: tools.performer_id
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,213 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SeatGeek Platform API — Events
+  description: 'SeatGeek Platform API — Events. 2 operations. Lead operation: List Events. Self-contained Naftiko capability
+    covering one Seatgeek business surface.'
+  tags:
+  - Seatgeek
+  - Events
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SEATGEEK_API_KEY: SEATGEEK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-events
+    baseUri: https://api.seatgeek.com/2
+    description: SeatGeek Platform API — Events business capability. Self-contained, no shared references.
+    resources:
+    - name: events
+      path: /events
+      operations:
+      - name: listevents
+        method: GET
+        description: List Events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: performers
+          in: query
+          type: string
+          description: Filter by performer slug or ID
+        - name: venue
+          in: query
+          type: integer
+          description: Filter by venue ID
+        - name: datetime_utc.gte
+          in: query
+          type: string
+          description: Filter events on or after this UTC datetime
+        - name: datetime_utc.lte
+          in: query
+          type: string
+          description: Filter events on or before this UTC datetime
+        - name: q
+          in: query
+          type: string
+          description: Text search query
+        - name: id
+          in: query
+          type: string
+          description: Filter by event ID (comma-separated for multiple)
+        - name: taxonomies.name
+          in: query
+          type: string
+          description: Filter by taxonomy name (e.g., "concert", "sports")
+        - name: geoip
+          in: query
+          type: boolean
+          description: Use requester IP for geolocation filtering
+        - name: lat
+          in: query
+          type: number
+          description: Latitude for geolocation filtering
+        - name: lon
+          in: query
+          type: number
+          description: Longitude for geolocation filtering
+        - name: range
+          in: query
+          type: string
+          description: Distance range for geolocation filtering (e.g., "25mi")
+        - name: lowest_price.gte
+          in: query
+          type: number
+          description: Minimum lowest ticket price filter
+        - name: highest_price.lte
+          in: query
+          type: number
+          description: Maximum highest ticket price filter
+        - name: per_page
+          in: query
+          type: integer
+          description: Number of results per page (max 5000)
+        - name: page
+          in: query
+          type: integer
+          description: Page number
+        - name: sort
+          in: query
+          type: string
+          description: Sort field and direction (e.g., "datetime_utc.asc")
+    - name: events-event_id
+      path: /events/{event_id}
+      operations:
+      - name: getevent
+        method: GET
+        description: Get Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: event_id
+          in: path
+          type: integer
+          description: SeatGeek event ID
+          required: true
+    authentication:
+      type: apikey
+      key: client_id
+      value: '{{env.SEATGEEK_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: platform-events-rest
+    port: 8080
+    description: REST adapter for SeatGeek Platform API — Events. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/events
+      name: events
+      description: REST surface for events.
+      operations:
+      - method: GET
+        name: listevents
+        description: List Events
+        call: platform-events.listevents
+        with:
+          performers: rest.performers
+          venue: rest.venue
+          datetime_utc.gte: rest.datetime_utc.gte
+          datetime_utc.lte: rest.datetime_utc.lte
+          q: rest.q
+          id: rest.id
+          taxonomies.name: rest.taxonomies.name
+          geoip: rest.geoip
+          lat: rest.lat
+          lon: rest.lon
+          range: rest.range
+          lowest_price.gte: rest.lowest_price.gte
+          highest_price.lte: rest.highest_price.lte
+          per_page: rest.per_page
+          page: rest.page
+          sort: rest.sort
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/events/{event-id}
+      name: events-event-id
+      description: REST surface for events-event_id.
+      operations:
+      - method: GET
+        name: getevent
+        description: Get Event
+        call: platform-events.getevent
+        with:
+          event_id: rest.event_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-events-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SeatGeek Platform API — Events. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-events
+      description: List Events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-events.listevents
+      with:
+        performers: tools.performers
+        venue: tools.venue
+        datetime_utc.gte: tools.datetime_utc.gte
+        datetime_utc.lte: tools.datetime_utc.lte
+        q: tools.q
+        id: tools.id
+        taxonomies.name: tools.taxonomies.name
+        geoip: tools.geoip
+        lat: tools.lat
+        lon: tools.lon
+        range: tools.range
+        lowest_price.gte: tools.lowest_price.gte
+        highest_price.lte: tools.highest_price.lte
+        per_page: tools.per_page
+        page: tools.page
+        sort: tools.sort
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-event
+      description: Get Event
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-events.getevent
+      with:
+        event_id: tools.event_id
+      outputParameters:
+      - type: object
+        mapping: $.

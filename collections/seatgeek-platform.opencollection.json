@@ -1,0 +1,459 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SeatGeek Platform API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "client_id",
+      "value": "{{client_id}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/events",
+            "params": [
+              {
+                "name": "performers",
+                "value": "",
+                "type": "query",
+                "description": "Filter by performer slug or ID"
+              },
+              {
+                "name": "venue",
+                "value": "",
+                "type": "query",
+                "description": "Filter by venue ID"
+              },
+              {
+                "name": "datetime_utc.gte",
+                "value": "",
+                "type": "query",
+                "description": "Filter events on or after this UTC datetime"
+              },
+              {
+                "name": "datetime_utc.lte",
+                "value": "",
+                "type": "query",
+                "description": "Filter events on or before this UTC datetime"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Text search query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by event ID (comma-separated for multiple)"
+              },
+              {
+                "name": "taxonomies.name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by taxonomy name (e.g., \"concert\", \"sports\")"
+              },
+              {
+                "name": "geoip",
+                "value": "",
+                "type": "query",
+                "description": "Use requester IP for geolocation filtering"
+              },
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude for geolocation filtering"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude for geolocation filtering"
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "query",
+                "description": "Distance range for geolocation filtering (e.g., \"25mi\")"
+              },
+              {
+                "name": "lowest_price.gte",
+                "value": "",
+                "type": "query",
+                "description": "Minimum lowest ticket price filter"
+              },
+              {
+                "name": "highest_price.lte",
+                "value": "",
+                "type": "query",
+                "description": "Maximum highest ticket price filter"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (max 5000)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort field and direction (e.g., \"datetime_utc.asc\")"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of all events. Supports filtering by performer, venue, date, taxonomy, geolocation, price range, and text search. Results include event details, venue information, performer lineup, and ticket pricing statistics."
+        },
+        {
+          "info": {
+            "name": "Get Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/events/:event_id",
+            "params": [
+              {
+                "name": "event_id",
+                "value": "",
+                "type": "path",
+                "description": "SeatGeek event ID"
+              }
+            ]
+          },
+          "docs": "Returns a single event document with full details."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Performers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Performers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/performers",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query",
+                "description": "Performer slug identifier"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Text search query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Performer ID (comma-separated for multiple)"
+              },
+              {
+                "name": "taxonomies.name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by taxonomy name"
+              },
+              {
+                "name": "genres.name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by genre name"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of performers. Filter by slug, taxonomy, genre, or text search. Performers represent artists, teams, or any entity that appears at events."
+        },
+        {
+          "info": {
+            "name": "Get Performer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/performers/:performer_id",
+            "params": [
+              {
+                "name": "performer_id",
+                "value": "",
+                "type": "path",
+                "description": "SeatGeek performer ID"
+              }
+            ]
+          },
+          "docs": "Returns a single performer document with full details."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Venues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Venues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/venues",
+            "params": [
+              {
+                "name": "city",
+                "value": "",
+                "type": "query",
+                "description": "Filter by city name"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Filter by US state abbreviation"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Filter by country code"
+              },
+              {
+                "name": "postal_code",
+                "value": "",
+                "type": "query",
+                "description": "Filter by postal code"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Text search query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Venue ID (comma-separated for multiple)"
+              },
+              {
+                "name": "geoip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of venues. Filter by city, state, country, postal code, geolocation, or text search."
+        },
+        {
+          "info": {
+            "name": "Get Venue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/venues/:venue_id",
+            "params": [
+              {
+                "name": "venue_id",
+                "value": "",
+                "type": "path",
+                "description": "SeatGeek venue ID"
+              }
+            ]
+          },
+          "docs": "Returns a single venue document with full details."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Taxonomies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Taxonomies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/taxonomies"
+          },
+          "docs": "Returns the available taxonomy categories used to classify events and performers."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Recommendations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Event Recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/recommendations",
+            "params": [
+              {
+                "name": "performers.id",
+                "value": "",
+                "type": "query",
+                "description": "Seed performer IDs for recommendations"
+              },
+              {
+                "name": "events.id",
+                "value": "",
+                "type": "query",
+                "description": "Seed event IDs for recommendations"
+              },
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude for geolocation (required)"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude for geolocation (required)"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns personalized event recommendations based on seed performers or events and geolocation. Requires API key access."
+        },
+        {
+          "info": {
+            "name": "Get Performer Recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/recommendations/performers",
+            "params": [
+              {
+                "name": "performers.id",
+                "value": "",
+                "type": "query",
+                "description": "Seed performer IDs"
+              },
+              {
+                "name": "events.id",
+                "value": "",
+                "type": "query",
+                "description": "Seed event IDs"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of performer recommendation documents with affinity scores. Requires API key access."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

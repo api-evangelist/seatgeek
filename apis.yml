@@ -67,7 +67,7 @@ common:
     type: GitHubOrganization
   - name: iOS SDK
     url: https://github.com/seatgeek/SGAPI
-    type: SDK
+    type: SDKs
   - name: API Support
     url: https://github.com/seatgeek/api-support
     type: Support
@@ -81,7 +81,7 @@ common:
   - url: json-ld/seatgeek-context.jsonld
     type: JSONLDContext
   - url: examples/seatgeek-list-events-example.json
-    type: Example
+    type: Examples
   - url: rules/seatgeek-rules.yml
     type: SpectralRuleset
   - url: vocabulary/seatgeek-vocabulary.yml

@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/seatgeek-platform-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: clientId
+  type: apiKey
+  in: query
+  parameter: client_id
+  description: SeatGeek client ID obtained from the developer portal
+  sources:
+  - openapi/seatgeek-platform-openapi.yml

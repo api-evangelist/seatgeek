@@ -51,6 +51,10 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.19'
 common:
+  - type: DomainSecurity
+    url: security/seatgeek-domain-security.yml
+  - type: Authentication
+    url: authentication/seatgeek-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/seatgeek
   - name: Website

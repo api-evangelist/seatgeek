@@ -51,6 +51,8 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.19'
 common:
+  - type: AgenticAccess
+    url: agentic-access/seatgeek-agentic-access.yml
   - type: DomainSecurity
     url: security/seatgeek-domain-security.yml
   - type: Authentication

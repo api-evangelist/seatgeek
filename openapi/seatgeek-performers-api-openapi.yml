@@ -1,0 +1,179 @@
+openapi: 3.0.3
+info:
+  title: SeatGeek Platform Events Performers API
+  description: The SeatGeek Platform API provides access to SeatGeek's comprehensive dataset of live events in the United States and Canada. Search events, performers, venues, taxonomies, and get personalized recommendations. The API supports JSON, JSONP, and XML response formats with pagination and geolocation filtering.
+  version: '2'
+  contact:
+    url: https://seatgeek.com/build
+  termsOfService: https://seatgeek.com/api-terms
+servers:
+- url: https://api.seatgeek.com/2
+  description: SeatGeek Platform API v2
+security:
+- clientId: []
+tags:
+- name: Performers
+paths:
+  /performers:
+    get:
+      operationId: listPerformers
+      summary: List Performers
+      description: Returns a paginated list of performers. Filter by slug, taxonomy, genre, or text search. Performers represent artists, teams, or any entity that appears at events.
+      tags:
+      - Performers
+      parameters:
+      - name: slug
+        in: query
+        description: Performer slug identifier
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: Text search query
+        schema:
+          type: string
+      - name: id
+        in: query
+        description: Performer ID (comma-separated for multiple)
+        schema:
+          type: string
+      - name: taxonomies.name
+        in: query
+        description: Filter by taxonomy name
+        schema:
+          type: string
+      - name: genres.name
+        in: query
+        description: Filter by genre name
+        schema:
+          type: string
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          default: 10
+          maximum: 5000
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: sort
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of performers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PerformersResponse'
+  /performers/{performer_id}:
+    get:
+      operationId: getPerformer
+      summary: Get Performer
+      description: Returns a single performer document with full details.
+      tags:
+      - Performers
+      parameters:
+      - name: performer_id
+        in: path
+        required: true
+        description: SeatGeek performer ID
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Performer details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Performer'
+        '404':
+          description: Performer not found
+components:
+  schemas:
+    Taxonomy:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        parent_id:
+          type: integer
+          nullable: true
+        document_source:
+          type: object
+    Performer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        image:
+          type: string
+          format: uri
+        images:
+          type: object
+        taxonomies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Taxonomy'
+        genres:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              slug:
+                type: string
+        score:
+          type: number
+        url:
+          type: string
+          format: uri
+        stats:
+          type: object
+          properties:
+            event_count:
+              type: integer
+    Meta:
+      type: object
+      properties:
+        total:
+          type: integer
+        took:
+          type: number
+          description: Query execution time in milliseconds
+        page:
+          type: integer
+        per_page:
+          type: integer
+        geolocation:
+          type: object
+          nullable: true
+    PerformersResponse:
+      type: object
+      properties:
+        performers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Performer'
+        meta:
+          $ref: '#/components/schemas/Meta'
+  securitySchemes:
+    clientId:
+      type: apiKey
+      in: query
+      name: client_id
+      description: SeatGeek client ID obtained from the developer portal

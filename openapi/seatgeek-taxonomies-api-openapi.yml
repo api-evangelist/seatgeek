@@ -1,0 +1,57 @@
+openapi: 3.0.3
+info:
+  title: SeatGeek Platform Events Taxonomies API
+  description: The SeatGeek Platform API provides access to SeatGeek's comprehensive dataset of live events in the United States and Canada. Search events, performers, venues, taxonomies, and get personalized recommendations. The API supports JSON, JSONP, and XML response formats with pagination and geolocation filtering.
+  version: '2'
+  contact:
+    url: https://seatgeek.com/build
+  termsOfService: https://seatgeek.com/api-terms
+servers:
+- url: https://api.seatgeek.com/2
+  description: SeatGeek Platform API v2
+security:
+- clientId: []
+tags:
+- name: Taxonomies
+paths:
+  /taxonomies:
+    get:
+      operationId: listTaxonomies
+      summary: List Taxonomies
+      description: Returns the available taxonomy categories used to classify events and performers.
+      tags:
+      - Taxonomies
+      responses:
+        '200':
+          description: List of taxonomies
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxonomiesResponse'
+components:
+  schemas:
+    Taxonomy:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        parent_id:
+          type: integer
+          nullable: true
+        document_source:
+          type: object
+    TaxonomiesResponse:
+      type: object
+      properties:
+        taxonomies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Taxonomy'
+  securitySchemes:
+    clientId:
+      type: apiKey
+      in: query
+      name: client_id
+      description: SeatGeek client ID obtained from the developer portal

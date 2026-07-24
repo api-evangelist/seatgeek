@@ -1,0 +1,275 @@
+openapi: 3.0.3
+info:
+  title: SeatGeek Platform Events Recommendations API
+  description: The SeatGeek Platform API provides access to SeatGeek's comprehensive dataset of live events in the United States and Canada. Search events, performers, venues, taxonomies, and get personalized recommendations. The API supports JSON, JSONP, and XML response formats with pagination and geolocation filtering.
+  version: '2'
+  contact:
+    url: https://seatgeek.com/build
+  termsOfService: https://seatgeek.com/api-terms
+servers:
+- url: https://api.seatgeek.com/2
+  description: SeatGeek Platform API v2
+security:
+- clientId: []
+tags:
+- name: Recommendations
+paths:
+  /recommendations:
+    get:
+      operationId: getRecommendations
+      summary: Get Event Recommendations
+      description: Returns personalized event recommendations based on seed performers or events and geolocation. Requires API key access.
+      tags:
+      - Recommendations
+      parameters:
+      - name: performers.id
+        in: query
+        description: Seed performer IDs for recommendations
+        schema:
+          type: string
+      - name: events.id
+        in: query
+        description: Seed event IDs for recommendations
+        schema:
+          type: string
+      - name: lat
+        in: query
+        required: true
+        description: Latitude for geolocation (required)
+        schema:
+          type: number
+      - name: lon
+        in: query
+        required: true
+        description: Longitude for geolocation (required)
+        schema:
+          type: number
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          default: 10
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      responses:
+        '200':
+          description: Personalized event recommendations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  recommendations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        event:
+                          $ref: '#/components/schemas/Event'
+                        score:
+                          type: number
+                          description: Affinity score
+  /recommendations/performers:
+    get:
+      operationId: getPerformerRecommendations
+      summary: Get Performer Recommendations
+      description: Returns a paginated list of performer recommendation documents with affinity scores. Requires API key access.
+      tags:
+      - Recommendations
+      parameters:
+      - name: performers.id
+        in: query
+        description: Seed performer IDs
+        schema:
+          type: string
+      - name: events.id
+        in: query
+        description: Seed event IDs
+        schema:
+          type: string
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          default: 10
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      responses:
+        '200':
+          description: Performer recommendations with affinity scores
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  recommendations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        performer:
+                          $ref: '#/components/schemas/Performer'
+                        score:
+                          type: number
+components:
+  schemas:
+    Venue:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        postal_code:
+          type: string
+        location:
+          type: object
+          properties:
+            lat:
+              type: number
+            lon:
+              type: number
+        url:
+          type: string
+          format: uri
+        score:
+          type: number
+        capacity:
+          type: integer
+        timezone:
+          type: string
+        has_upcoming_events:
+          type: boolean
+    Taxonomy:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        parent_id:
+          type: integer
+          nullable: true
+        document_source:
+          type: object
+    Performer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        image:
+          type: string
+          format: uri
+        images:
+          type: object
+        taxonomies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Taxonomy'
+        genres:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              slug:
+                type: string
+        score:
+          type: number
+        url:
+          type: string
+          format: uri
+        stats:
+          type: object
+          properties:
+            event_count:
+              type: integer
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        short_title:
+          type: string
+        datetime_utc:
+          type: string
+          format: date-time
+        datetime_local:
+          type: string
+          format: date-time
+        datetime_tbd:
+          type: boolean
+        venue:
+          $ref: '#/components/schemas/Venue'
+        performers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Performer'
+        taxonomies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Taxonomy'
+        stats:
+          type: object
+          properties:
+            listing_count:
+              type: integer
+            average_price:
+              type: number
+            lowest_price:
+              type: number
+            highest_price:
+              type: number
+            median_price:
+              type: number
+        url:
+          type: string
+          description: SeatGeek event page URL
+        type:
+          type: string
+        score:
+          type: number
+          description: SeatGeek popularity score
+        announce_date:
+          type: string
+          format: date
+        status:
+          type: string
+          enum:
+          - normal
+          - cancelled
+          - rescheduled
+          - contingent
+  securitySchemes:
+    clientId:
+      type: apiKey
+      in: query
+      name: client_id
+      description: SeatGeek client ID obtained from the developer portal

@@ -1,29 +1,76 @@
 aid: seatgeek
 url: https://raw.githubusercontent.com/api-evangelist/seatgeek/refs/heads/main/apis.yml
 apis:
-  - aid: seatgeek:seatgeek-platform-api
-    name: SeatGeek Platform API
-    tags:
-      - Events
-      - Tickets
-      - Performers
-      - Venues
-      - Live Events
-    humanURL: https://seatgeek.com/build
-    baseURL: https://api.seatgeek.com/2
-    properties:
-      - url: openapi/seatgeek-platform-openapi.yml
-        type: OpenAPI
-      - url: https://seatgeek.github.io/
-        type: Documentation
-      - url: https://seatgeek.com/build
-        type: Portal
-    description: >-
-      The SeatGeek Platform API provides access to SeatGeek's comprehensive dataset of live events in the United States
-      and Canada. The API enables developers to search events, performers, and venues, retrieve seat maps, get event
-      recommendations, and deep-link users directly to the SeatGeek ticketing purchase flow. It supports JSON, JSONP,
-      and XML response formats, with pagination, geolocation filtering, and price-range filtering across all event types
-      including sports, concerts, and theater.
+- aid: seatgeek:seatgeek-events-api
+  name: SeatGeek Events API
+  description: The Events API from SeatGeek — 2 operation(s) for events.
+  humanURL: https://seatgeek.com/build
+  baseURL: https://api.seatgeek.com/2
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/seatgeek-events-api-openapi.yml
+  - type: Documentation
+    url: https://seatgeek.github.io/
+  - type: Portal
+    url: https://seatgeek.com/build
+- aid: seatgeek:seatgeek-performers-api
+  name: SeatGeek Performers API
+  description: The Performers API from SeatGeek — 2 operation(s) for performers.
+  humanURL: https://seatgeek.com/build
+  baseURL: https://api.seatgeek.com/2
+  tags:
+  - Performers
+  properties:
+  - type: OpenAPI
+    url: openapi/seatgeek-performers-api-openapi.yml
+  - type: Documentation
+    url: https://seatgeek.github.io/
+  - type: Portal
+    url: https://seatgeek.com/build
+- aid: seatgeek:seatgeek-recommendations-api
+  name: SeatGeek Recommendations API
+  description: The Recommendations API from SeatGeek — 2 operation(s) for recommendations.
+  humanURL: https://seatgeek.com/build
+  baseURL: https://api.seatgeek.com/2
+  tags:
+  - Recommendations
+  properties:
+  - type: OpenAPI
+    url: openapi/seatgeek-recommendations-api-openapi.yml
+  - type: Documentation
+    url: https://seatgeek.github.io/
+  - type: Portal
+    url: https://seatgeek.com/build
+- aid: seatgeek:seatgeek-taxonomies-api
+  name: SeatGeek Taxonomies API
+  description: The Taxonomies API from SeatGeek — 1 operation(s) for taxonomies.
+  humanURL: https://seatgeek.com/build
+  baseURL: https://api.seatgeek.com/2
+  tags:
+  - Taxonomies
+  properties:
+  - type: OpenAPI
+    url: openapi/seatgeek-taxonomies-api-openapi.yml
+  - type: Documentation
+    url: https://seatgeek.github.io/
+  - type: Portal
+    url: https://seatgeek.com/build
+- aid: seatgeek:seatgeek-venues-api
+  name: SeatGeek Venues API
+  description: The Venues API from SeatGeek — 2 operation(s) for venues.
+  humanURL: https://seatgeek.com/build
+  baseURL: https://api.seatgeek.com/2
+  tags:
+  - Venues
+  properties:
+  - type: OpenAPI
+    url: openapi/seatgeek-venues-api-openapi.yml
+  - type: Documentation
+    url: https://seatgeek.github.io/
+  - type: Portal
+    url: https://seatgeek.com/build
 name: SeatGeek
 tags:
   - Events
@@ -34,7 +81,20 @@ tags:
   - Venues
   - Ticketing
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/seatgeek.png
 access: 3rd-Party
 created: '2026-05-02'
 modified: '2026-05-19'
@@ -51,6 +111,8 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.19'
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/seatgeek/overview
   - type: AgenticAccess
     url: agentic-access/seatgeek-agentic-access.yml
   - type: DomainSecurity

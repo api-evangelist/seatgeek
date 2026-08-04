@@ -1,0 +1,22 @@
+{
+  "provider": "seatgeek",
+  "sources": [
+    "seatgeek-events-api-openapi.yml",
+    "seatgeek-performers-api-openapi.yml",
+    "seatgeek-recommendations-api-openapi.yml",
+    "seatgeek-taxonomies-api-openapi.yml",
+    "seatgeek-venues-api-openapi.yml"
+  ],
+  "outputs": [
+    "seatgeek-events-api-openapi.yml",
+    "seatgeek-performers-api-openapi.yml",
+    "seatgeek-recommendations-api-openapi.yml",
+    "seatgeek-taxonomies-api-openapi.yml",
+    "seatgeek-venues-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

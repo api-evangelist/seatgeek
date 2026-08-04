@@ -1,0 +1,306 @@
+{
+  "info": {
+    "_postman_id": "94114b6f-2e66-404d-8825-3c0a856275c3",
+    "name": "SeatGeek Platform Events Recommendations API",
+    "description": "The SeatGeek Platform API provides access to SeatGeek's comprehensive dataset of live events in the United States and Canada. Search events, performers, venues, taxonomies, and get personalized recommendations. The API supports JSON, JSONP, and XML response formats with pagination and geolocation filtering.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:49.000Z",
+    "updatedAt": "2026-07-28T02:51:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-94114b6f-2e66-404d-8825-3c0a856275c3"
+  },
+  "item": [
+    {
+      "name": "recommendations",
+      "item": [
+        {
+          "name": "performers",
+          "item": [
+            {
+              "name": "Get Performer Recommendations",
+              "id": "348849a8-9d32-4028-ac18-120332ef59dc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/recommendations/performers?performers.id=<string>&events.id=<string>&per_page=10&page=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recommendations",
+                    "performers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Seed performer IDs",
+                      "key": "performers.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Seed event IDs",
+                      "key": "events.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of performer recommendation documents with affinity scores. Requires API key access."
+              },
+              "response": [
+                {
+                  "id": "c12f73b5-ef13-4c95-bcd4-82ee81107d34",
+                  "name": "Performer recommendations with affinity scores",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/recommendations/performers?performers.id=<string>&events.id=<string>&per_page=10&page=1&client_id=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "recommendations",
+                        "performers"
+                      ],
+                      "query": [
+                        {
+                          "description": "Seed performer IDs",
+                          "key": "performers.id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Seed event IDs",
+                          "key": "events.id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "per_page",
+                          "value": "10"
+                        },
+                        {
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "client_id",
+                          "value": "<API Key>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"recommendations\": [\n    {\n      \"performer\": {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"slug\": \"<string>\",\n        \"type\": \"<string>\",\n        \"image\": \"<uri>\",\n        \"images\": {},\n        \"taxonomies\": [\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<integer>\",\n            \"document_source\": {}\n          },\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<integer>\",\n            \"document_source\": {}\n          }\n        ],\n        \"genres\": [\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"slug\": \"<string>\"\n          },\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"slug\": \"<string>\"\n          }\n        ],\n        \"score\": \"<number>\",\n        \"url\": \"<uri>\",\n        \"stats\": {\n          \"event_count\": \"<integer>\"\n        }\n      },\n      \"score\": \"<number>\"\n    },\n    {\n      \"performer\": {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"slug\": \"<string>\",\n        \"type\": \"<string>\",\n        \"image\": \"<uri>\",\n        \"images\": {},\n        \"taxonomies\": [\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<integer>\",\n            \"document_source\": {}\n          },\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<integer>\",\n            \"document_source\": {}\n          }\n        ],\n        \"genres\": [\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"slug\": \"<string>\"\n          },\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"slug\": \"<string>\"\n          }\n        ],\n        \"score\": \"<number>\",\n        \"url\": \"<uri>\",\n        \"stats\": {\n          \"event_count\": \"<integer>\"\n        }\n      },\n      \"score\": \"<number>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:51:50.000Z",
+                  "updatedAt": "2026-07-28T02:51:50.000Z",
+                  "uid": "35240-c12f73b5-ef13-4c95-bcd4-82ee81107d34"
+                }
+              ],
+              "createdAt": "2026-07-28T02:51:50.000Z",
+              "updatedAt": "2026-07-28T02:51:50.000Z",
+              "uid": "35240-348849a8-9d32-4028-ac18-120332ef59dc"
+            }
+          ],
+          "id": "7802dd48-2d37-45dc-a2e3-ce0d04ea6e7e",
+          "createdAt": "2026-07-28T02:51:50.000Z",
+          "updatedAt": "2026-07-28T02:51:50.000Z",
+          "uid": "35240-7802dd48-2d37-45dc-a2e3-ce0d04ea6e7e"
+        },
+        {
+          "name": "Get Event Recommendations",
+          "id": "b7767a4b-6f66-4b14-b80f-0dddd8ba54c1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/recommendations?performers.id=<string>&events.id=<string>&lat=<number>&lon=<number>&per_page=10&page=1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recommendations"
+              ],
+              "query": [
+                {
+                  "description": "Seed performer IDs for recommendations",
+                  "key": "performers.id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Seed event IDs for recommendations",
+                  "key": "events.id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Latitude for geolocation (required)",
+                  "key": "lat",
+                  "value": "<number>"
+                },
+                {
+                  "description": "(Required) Longitude for geolocation (required)",
+                  "key": "lon",
+                  "value": "<number>"
+                },
+                {
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Returns personalized event recommendations based on seed performers or events and geolocation. Requires API key access."
+          },
+          "response": [
+            {
+              "id": "39394d0d-37f6-419b-ac27-d87c9edf2a85",
+              "name": "Personalized event recommendations",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/recommendations?performers.id=<string>&events.id=<string>&lat=<number>&lon=<number>&per_page=10&page=1&client_id=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recommendations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Seed performer IDs for recommendations",
+                      "key": "performers.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Seed event IDs for recommendations",
+                      "key": "events.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Latitude for geolocation (required)",
+                      "key": "lat",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "(Required) Longitude for geolocation (required)",
+                      "key": "lon",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Added as a part of security scheme: apikey",
+                      "key": "client_id",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"recommendations\": [\n    {\n      \"event\": {\n        \"id\": \"<integer>\",\n        \"title\": \"<string>\",\n        \"short_title\": \"<string>\",\n        \"datetime_utc\": \"<dateTime>\",\n        \"datetime_local\": \"<dateTime>\",\n        \"datetime_tbd\": \"<boolean>\",\n        \"venue\": {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"address\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"country\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"location\": {\n            \"lat\": \"<number>\",\n            \"lon\": \"<number>\"\n          },\n          \"url\": \"<uri>\",\n          \"score\": \"<number>\",\n          \"capacity\": \"<integer>\",\n          \"timezone\": \"<string>\",\n          \"has_upcoming_events\": \"<boolean>\"\n        },\n        \"performers\": [\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"slug\": \"<string>\",\n            \"type\": \"<string>\",\n            \"image\": \"<uri>\",\n            \"images\": {},\n            \"taxonomies\": [\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"parent_id\": \"<integer>\",\n                \"document_source\": {}\n              },\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"parent_id\": \"<integer>\",\n                \"document_source\": {}\n              }\n            ],\n            \"genres\": [\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"slug\": \"<string>\"\n              },\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"slug\": \"<string>\"\n              }\n            ],\n            \"score\": \"<number>\",\n            \"url\": \"<uri>\",\n            \"stats\": {\n              \"event_count\": \"<integer>\"\n            }\n          },\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"slug\": \"<string>\",\n            \"type\": \"<string>\",\n            \"image\": \"<uri>\",\n            \"images\": {},\n            \"taxonomies\": [\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"parent_id\": \"<integer>\",\n                \"document_source\": {}\n              },\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"parent_id\": \"<integer>\",\n                \"document_source\": {}\n              }\n            ],\n            \"genres\": [\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"slug\": \"<string>\"\n              },\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"slug\": \"<string>\"\n              }\n            ],\n            \"score\": \"<number>\",\n            \"url\": \"<uri>\",\n            \"stats\": {\n              \"event_count\": \"<integer>\"\n            }\n          }\n        ],\n        \"taxonomies\": [\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<integer>\",\n            \"document_source\": {}\n          },\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<integer>\",\n            \"document_source\": {}\n          }\n        ],\n        \"stats\": {\n          \"listing_count\": \"<integer>\",\n          \"average_price\": \"<number>\",\n          \"lowest_price\": \"<number>\",\n          \"highest_price\": \"<number>\",\n          \"median_price\": \"<number>\"\n        },\n        \"url\": \"<string>\",\n        \"type\": \"<string>\",\n        \"score\": \"<number>\",\n        \"announce_date\": \"<date>\",\n        \"status\": \"rescheduled\"\n      },\n      \"score\": \"<number>\"\n    },\n    {\n      \"event\": {\n        \"id\": \"<integer>\",\n        \"title\": \"<string>\",\n        \"short_title\": \"<string>\",\n        \"datetime_utc\": \"<dateTime>\",\n        \"datetime_local\": \"<dateTime>\",\n        \"datetime_tbd\": \"<boolean>\",\n        \"venue\": {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"address\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"country\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"location\": {\n            \"lat\": \"<number>\",\n            \"lon\": \"<number>\"\n          },\n          \"url\": \"<uri>\",\n          \"score\": \"<number>\",\n          \"capacity\": \"<integer>\",\n          \"timezone\": \"<string>\",\n          \"has_upcoming_events\": \"<boolean>\"\n        },\n        \"performers\": [\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"slug\": \"<string>\",\n            \"type\": \"<string>\",\n            \"image\": \"<uri>\",\n            \"images\": {},\n            \"taxonomies\": [\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"parent_id\": \"<integer>\",\n                \"document_source\": {}\n              },\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"parent_id\": \"<integer>\",\n                \"document_source\": {}\n              }\n            ],\n            \"genres\": [\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"slug\": \"<string>\"\n              },\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"slug\": \"<string>\"\n              }\n            ],\n            \"score\": \"<number>\",\n            \"url\": \"<uri>\",\n            \"stats\": {\n              \"event_count\": \"<integer>\"\n            }\n          },\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"slug\": \"<string>\",\n            \"type\": \"<string>\",\n            \"image\": \"<uri>\",\n            \"images\": {},\n            \"taxonomies\": [\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"parent_id\": \"<integer>\",\n                \"document_source\": {}\n              },\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"parent_id\": \"<integer>\",\n                \"document_source\": {}\n              }\n            ],\n            \"genres\": [\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"slug\": \"<string>\"\n              },\n              {\n                \"id\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"slug\": \"<string>\"\n              }\n            ],\n            \"score\": \"<number>\",\n            \"url\": \"<uri>\",\n            \"stats\": {\n              \"event_count\": \"<integer>\"\n            }\n          }\n        ],\n        \"taxonomies\": [\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<integer>\",\n            \"document_source\": {}\n          },\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<integer>\",\n            \"document_source\": {}\n          }\n        ],\n        \"stats\": {\n          \"listing_count\": \"<integer>\",\n          \"average_price\": \"<number>\",\n          \"lowest_price\": \"<number>\",\n          \"highest_price\": \"<number>\",\n          \"median_price\": \"<number>\"\n        },\n        \"url\": \"<string>\",\n        \"type\": \"<string>\",\n        \"score\": \"<number>\",\n        \"announce_date\": \"<date>\",\n        \"status\": \"normal\"\n      },\n      \"score\": \"<number>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:51:50.000Z",
+              "updatedAt": "2026-07-28T02:51:50.000Z",
+              "uid": "35240-39394d0d-37f6-419b-ac27-d87c9edf2a85"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:50.000Z",
+          "updatedAt": "2026-07-28T02:51:50.000Z",
+          "uid": "35240-b7767a4b-6f66-4b14-b80f-0dddd8ba54c1"
+        }
+      ],
+      "id": "55bc89c4-3653-4893-8cdb-bd7e30cec47c",
+      "createdAt": "2026-07-28T02:51:50.000Z",
+      "updatedAt": "2026-07-28T02:51:50.000Z",
+      "uid": "35240-55bc89c4-3653-4893-8cdb-bd7e30cec47c"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "client_id",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.seatgeek.com/2"
+    }
+  ]
+}

@@ -1,0 +1,539 @@
+{
+  "info": {
+    "_postman_id": "cbbe49c1-f623-4435-adc9-b83da7c29491",
+    "name": "SeatGeek Platform Events API",
+    "description": "The SeatGeek Platform API provides access to SeatGeek's comprehensive dataset of live events in the United States and Canada. Search events, performers, venues, taxonomies, and get personalized recommendations. The API supports JSON, JSONP, and XML response formats with pagination and geolocation filtering.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:48.000Z",
+    "updatedAt": "2026-07-28T02:51:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cbbe49c1-f623-4435-adc9-b83da7c29491"
+  },
+  "item": [
+    {
+      "name": "events",
+      "item": [
+        {
+          "name": "{event_id}",
+          "item": [
+            {
+              "name": "Get Event",
+              "id": "1a98f1c1-1354-4ae4-9a8c-2b535b5df1ab",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events/:event_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events",
+                    ":event_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "bd5aa63d-b324-4b75-b701-614b0eff7296",
+                      "key": "event_id",
+                      "value": "<integer>",
+                      "description": "(Required) SeatGeek event ID"
+                    }
+                  ]
+                },
+                "description": "Returns a single event document with full details."
+              },
+              "response": [
+                {
+                  "id": "91dd91a1-d7df-42fd-a9f7-8e960eda9af3",
+                  "name": "Event details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/events/:event_id?client_id=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "events",
+                        ":event_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "client_id",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "event_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"short_title\": \"<string>\",\n  \"datetime_utc\": \"<dateTime>\",\n  \"datetime_local\": \"<dateTime>\",\n  \"datetime_tbd\": \"<boolean>\",\n  \"venue\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\",\n    \"address\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"location\": {\n      \"lat\": \"<number>\",\n      \"lon\": \"<number>\"\n    },\n    \"url\": \"<uri>\",\n    \"score\": \"<number>\",\n    \"capacity\": \"<integer>\",\n    \"timezone\": \"<string>\",\n    \"has_upcoming_events\": \"<boolean>\"\n  },\n  \"performers\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\",\n      \"type\": \"<string>\",\n      \"image\": \"<uri>\",\n      \"images\": {},\n      \"taxonomies\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<integer>\",\n          \"document_source\": {}\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<integer>\",\n          \"document_source\": {}\n        }\n      ],\n      \"genres\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"slug\": \"<string>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"slug\": \"<string>\"\n        }\n      ],\n      \"score\": \"<number>\",\n      \"url\": \"<uri>\",\n      \"stats\": {\n        \"event_count\": \"<integer>\"\n      }\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\",\n      \"type\": \"<string>\",\n      \"image\": \"<uri>\",\n      \"images\": {},\n      \"taxonomies\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<integer>\",\n          \"document_source\": {}\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<integer>\",\n          \"document_source\": {}\n        }\n      ],\n      \"genres\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"slug\": \"<string>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"slug\": \"<string>\"\n        }\n      ],\n      \"score\": \"<number>\",\n      \"url\": \"<uri>\",\n      \"stats\": {\n        \"event_count\": \"<integer>\"\n      }\n    }\n  ],\n  \"taxonomies\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<integer>\",\n      \"document_source\": {}\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<integer>\",\n      \"document_source\": {}\n    }\n  ],\n  \"stats\": {\n    \"listing_count\": \"<integer>\",\n    \"average_price\": \"<number>\",\n    \"lowest_price\": \"<number>\",\n    \"highest_price\": \"<number>\",\n    \"median_price\": \"<number>\"\n  },\n  \"url\": \"<string>\",\n  \"type\": \"<string>\",\n  \"score\": \"<number>\",\n  \"announce_date\": \"<date>\",\n  \"status\": \"contingent\"\n}",
+                  "createdAt": "2026-07-28T02:51:48.000Z",
+                  "updatedAt": "2026-07-28T02:51:48.000Z",
+                  "uid": "35240-91dd91a1-d7df-42fd-a9f7-8e960eda9af3"
+                },
+                {
+                  "id": "a1e749ea-8c07-4fbf-9ba4-4463473d7bd0",
+                  "name": "Event not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/events/:event_id?client_id=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "events",
+                        ":event_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "client_id",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "event_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:51:48.000Z",
+                  "updatedAt": "2026-07-28T02:51:48.000Z",
+                  "uid": "35240-a1e749ea-8c07-4fbf-9ba4-4463473d7bd0"
+                }
+              ],
+              "createdAt": "2026-07-28T02:51:48.000Z",
+              "updatedAt": "2026-07-28T02:51:48.000Z",
+              "uid": "35240-1a98f1c1-1354-4ae4-9a8c-2b535b5df1ab"
+            }
+          ],
+          "id": "9ef374e8-be26-4f87-8957-235b606bccbd",
+          "createdAt": "2026-07-28T02:51:48.000Z",
+          "updatedAt": "2026-07-28T02:51:48.000Z",
+          "uid": "35240-9ef374e8-be26-4f87-8957-235b606bccbd"
+        },
+        {
+          "name": "List Events",
+          "id": "6c8a4ddb-c8b2-4840-879d-5d0dd9f0419e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/events?performers=<string>&venue=<integer>&datetime_utc.gte=<dateTime>&datetime_utc.lte=<dateTime>&q=<string>&id=<string>&taxonomies.name=<string>&geoip=<boolean>&lat=<number>&lon=<number>&range=<string>&lowest_price.gte=<number>&highest_price.lte=<number>&per_page=10&page=1&sort=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "events"
+              ],
+              "query": [
+                {
+                  "description": "Filter by performer slug or ID",
+                  "key": "performers",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by venue ID",
+                  "key": "venue",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter events on or after this UTC datetime",
+                  "key": "datetime_utc.gte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Filter events on or before this UTC datetime",
+                  "key": "datetime_utc.lte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Text search query",
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by event ID (comma-separated for multiple)",
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by taxonomy name (e.g., \"concert\", \"sports\")",
+                  "key": "taxonomies.name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Use requester IP for geolocation filtering",
+                  "key": "geoip",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Latitude for geolocation filtering",
+                  "key": "lat",
+                  "value": "<number>"
+                },
+                {
+                  "description": "Longitude for geolocation filtering",
+                  "key": "lon",
+                  "value": "<number>"
+                },
+                {
+                  "description": "Distance range for geolocation filtering (e.g., \"25mi\")",
+                  "key": "range",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Minimum lowest ticket price filter",
+                  "key": "lowest_price.gte",
+                  "value": "<number>"
+                },
+                {
+                  "description": "Maximum highest ticket price filter",
+                  "key": "highest_price.lte",
+                  "value": "<number>"
+                },
+                {
+                  "description": "Number of results per page (max 5000)",
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "description": "Page number",
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "description": "Sort field and direction (e.g., \"datetime_utc.asc\")",
+                  "key": "sort",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a paginated list of all events. Supports filtering by performer, venue, date, taxonomy, geolocation, price range, and text search. Results include event details, venue information, performer lineup, and ticket pricing statistics."
+          },
+          "response": [
+            {
+              "id": "2418476d-9118-4ce3-b678-b058b2989523",
+              "name": "List of events with pagination metadata",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?performers=<string>&venue=<integer>&datetime_utc.gte=<dateTime>&datetime_utc.lte=<dateTime>&q=<string>&id=<string>&taxonomies.name=<string>&geoip=<boolean>&lat=<number>&lon=<number>&range=<string>&lowest_price.gte=<number>&highest_price.lte=<number>&per_page=10&page=1&sort=<string>&client_id=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by performer slug or ID",
+                      "key": "performers",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by venue ID",
+                      "key": "venue",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter events on or after this UTC datetime",
+                      "key": "datetime_utc.gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter events on or before this UTC datetime",
+                      "key": "datetime_utc.lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Text search query",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by event ID (comma-separated for multiple)",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by taxonomy name (e.g., \"concert\", \"sports\")",
+                      "key": "taxonomies.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Use requester IP for geolocation filtering",
+                      "key": "geoip",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Latitude for geolocation filtering",
+                      "key": "lat",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Longitude for geolocation filtering",
+                      "key": "lon",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Distance range for geolocation filtering (e.g., \"25mi\")",
+                      "key": "range",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Minimum lowest ticket price filter",
+                      "key": "lowest_price.gte",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Maximum highest ticket price filter",
+                      "key": "highest_price.lte",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Number of results per page (max 5000)",
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Page number",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Sort field and direction (e.g., \"datetime_utc.asc\")",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Added as a part of security scheme: apikey",
+                      "key": "client_id",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"events\": [\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"short_title\": \"<string>\",\n      \"datetime_utc\": \"<dateTime>\",\n      \"datetime_local\": \"<dateTime>\",\n      \"datetime_tbd\": \"<boolean>\",\n      \"venue\": {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"slug\": \"<string>\",\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"location\": {\n          \"lat\": \"<number>\",\n          \"lon\": \"<number>\"\n        },\n        \"url\": \"<uri>\",\n        \"score\": \"<number>\",\n        \"capacity\": \"<integer>\",\n        \"timezone\": \"<string>\",\n        \"has_upcoming_events\": \"<boolean>\"\n      },\n      \"performers\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"type\": \"<string>\",\n          \"image\": \"<uri>\",\n          \"images\": {},\n          \"taxonomies\": [\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"document_source\": {}\n            },\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"document_source\": {}\n            }\n          ],\n          \"genres\": [\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"slug\": \"<string>\"\n            },\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"slug\": \"<string>\"\n            }\n          ],\n          \"score\": \"<number>\",\n          \"url\": \"<uri>\",\n          \"stats\": {\n            \"event_count\": \"<integer>\"\n          }\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"type\": \"<string>\",\n          \"image\": \"<uri>\",\n          \"images\": {},\n          \"taxonomies\": [\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"document_source\": {}\n            },\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"document_source\": {}\n            }\n          ],\n          \"genres\": [\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"slug\": \"<string>\"\n            },\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"slug\": \"<string>\"\n            }\n          ],\n          \"score\": \"<number>\",\n          \"url\": \"<uri>\",\n          \"stats\": {\n            \"event_count\": \"<integer>\"\n          }\n        }\n      ],\n      \"taxonomies\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<integer>\",\n          \"document_source\": {}\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<integer>\",\n          \"document_source\": {}\n        }\n      ],\n      \"stats\": {\n        \"listing_count\": \"<integer>\",\n        \"average_price\": \"<number>\",\n        \"lowest_price\": \"<number>\",\n        \"highest_price\": \"<number>\",\n        \"median_price\": \"<number>\"\n      },\n      \"url\": \"<string>\",\n      \"type\": \"<string>\",\n      \"score\": \"<number>\",\n      \"announce_date\": \"<date>\",\n      \"status\": \"cancelled\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"short_title\": \"<string>\",\n      \"datetime_utc\": \"<dateTime>\",\n      \"datetime_local\": \"<dateTime>\",\n      \"datetime_tbd\": \"<boolean>\",\n      \"venue\": {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"slug\": \"<string>\",\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"location\": {\n          \"lat\": \"<number>\",\n          \"lon\": \"<number>\"\n        },\n        \"url\": \"<uri>\",\n        \"score\": \"<number>\",\n        \"capacity\": \"<integer>\",\n        \"timezone\": \"<string>\",\n        \"has_upcoming_events\": \"<boolean>\"\n      },\n      \"performers\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"type\": \"<string>\",\n          \"image\": \"<uri>\",\n          \"images\": {},\n          \"taxonomies\": [\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"document_source\": {}\n            },\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"document_source\": {}\n            }\n          ],\n          \"genres\": [\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"slug\": \"<string>\"\n            },\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"slug\": \"<string>\"\n            }\n          ],\n          \"score\": \"<number>\",\n          \"url\": \"<uri>\",\n          \"stats\": {\n            \"event_count\": \"<integer>\"\n          }\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"type\": \"<string>\",\n          \"image\": \"<uri>\",\n          \"images\": {},\n          \"taxonomies\": [\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"document_source\": {}\n            },\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"document_source\": {}\n            }\n          ],\n          \"genres\": [\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"slug\": \"<string>\"\n            },\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"slug\": \"<string>\"\n            }\n          ],\n          \"score\": \"<number>\",\n          \"url\": \"<uri>\",\n          \"stats\": {\n            \"event_count\": \"<integer>\"\n          }\n        }\n      ],\n      \"taxonomies\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<integer>\",\n          \"document_source\": {}\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<integer>\",\n          \"document_source\": {}\n        }\n      ],\n      \"stats\": {\n        \"listing_count\": \"<integer>\",\n        \"average_price\": \"<number>\",\n        \"lowest_price\": \"<number>\",\n        \"highest_price\": \"<number>\",\n        \"median_price\": \"<number>\"\n      },\n      \"url\": \"<string>\",\n      \"type\": \"<string>\",\n      \"score\": \"<number>\",\n      \"announce_date\": \"<date>\",\n      \"status\": \"normal\"\n    }\n  ],\n  \"meta\": {\n    \"total\": \"<integer>\",\n    \"took\": \"<number>\",\n    \"page\": \"<integer>\",\n    \"per_page\": \"<integer>\",\n    \"geolocation\": {}\n  }\n}",
+              "createdAt": "2026-07-28T02:51:48.000Z",
+              "updatedAt": "2026-07-28T02:51:48.000Z",
+              "uid": "35240-2418476d-9118-4ce3-b678-b058b2989523"
+            },
+            {
+              "id": "9886113d-a95d-4a0f-b76d-ab13361e0aed",
+              "name": "Unauthorized - invalid or missing client_id",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/events?performers=<string>&venue=<integer>&datetime_utc.gte=<dateTime>&datetime_utc.lte=<dateTime>&q=<string>&id=<string>&taxonomies.name=<string>&geoip=<boolean>&lat=<number>&lon=<number>&range=<string>&lowest_price.gte=<number>&highest_price.lte=<number>&per_page=10&page=1&sort=<string>&client_id=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by performer slug or ID",
+                      "key": "performers",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by venue ID",
+                      "key": "venue",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter events on or after this UTC datetime",
+                      "key": "datetime_utc.gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter events on or before this UTC datetime",
+                      "key": "datetime_utc.lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Text search query",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by event ID (comma-separated for multiple)",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by taxonomy name (e.g., \"concert\", \"sports\")",
+                      "key": "taxonomies.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Use requester IP for geolocation filtering",
+                      "key": "geoip",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Latitude for geolocation filtering",
+                      "key": "lat",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Longitude for geolocation filtering",
+                      "key": "lon",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Distance range for geolocation filtering (e.g., \"25mi\")",
+                      "key": "range",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Minimum lowest ticket price filter",
+                      "key": "lowest_price.gte",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Maximum highest ticket price filter",
+                      "key": "highest_price.lte",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Number of results per page (max 5000)",
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Page number",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Sort field and direction (e.g., \"datetime_utc.asc\")",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Added as a part of security scheme: apikey",
+                      "key": "client_id",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:48.000Z",
+              "updatedAt": "2026-07-28T02:51:48.000Z",
+              "uid": "35240-9886113d-a95d-4a0f-b76d-ab13361e0aed"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:48.000Z",
+          "updatedAt": "2026-07-28T02:51:48.000Z",
+          "uid": "35240-6c8a4ddb-c8b2-4840-879d-5d0dd9f0419e"
+        }
+      ],
+      "id": "d96edc9e-4c7d-451f-bab7-ee68495a47d8",
+      "createdAt": "2026-07-28T02:51:48.000Z",
+      "updatedAt": "2026-07-28T02:51:48.000Z",
+      "uid": "35240-d96edc9e-4c7d-451f-bab7-ee68495a47d8"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "client_id",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.seatgeek.com/2"
+    }
+  ]
+}

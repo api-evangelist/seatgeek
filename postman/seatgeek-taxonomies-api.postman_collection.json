@@ -1,0 +1,124 @@
+{
+  "info": {
+    "_postman_id": "fdd439b0-49f7-4519-ac1d-d34b45370aa0",
+    "name": "SeatGeek Platform Events Taxonomies API",
+    "description": "The SeatGeek Platform API provides access to SeatGeek's comprehensive dataset of live events in the United States and Canada. Search events, performers, venues, taxonomies, and get personalized recommendations. The API supports JSON, JSONP, and XML response formats with pagination and geolocation filtering.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:50.000Z",
+    "updatedAt": "2026-07-28T02:51:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fdd439b0-49f7-4519-ac1d-d34b45370aa0"
+  },
+  "item": [
+    {
+      "name": "taxonomies",
+      "item": [
+        {
+          "name": "List Taxonomies",
+          "id": "349baf12-dbe6-444b-854d-349196f5fe00",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/taxonomies",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "taxonomies"
+              ]
+            },
+            "description": "Returns the available taxonomy categories used to classify events and performers."
+          },
+          "response": [
+            {
+              "id": "6e7dab4e-1fdd-40ca-b89d-0d05dfd03def",
+              "name": "List of taxonomies",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/taxonomies?client_id=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "taxonomies"
+                  ],
+                  "query": [
+                    {
+                      "description": "Added as a part of security scheme: apikey",
+                      "key": "client_id",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"taxonomies\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<integer>\",\n      \"document_source\": {}\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<integer>\",\n      \"document_source\": {}\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:51:51.000Z",
+              "updatedAt": "2026-07-28T02:51:51.000Z",
+              "uid": "35240-6e7dab4e-1fdd-40ca-b89d-0d05dfd03def"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:51.000Z",
+          "updatedAt": "2026-07-28T02:51:51.000Z",
+          "uid": "35240-349baf12-dbe6-444b-854d-349196f5fe00"
+        }
+      ],
+      "id": "cac3c5ae-0319-4541-b05b-4f68b26048a4",
+      "createdAt": "2026-07-28T02:51:51.000Z",
+      "updatedAt": "2026-07-28T02:51:51.000Z",
+      "uid": "35240-cac3c5ae-0319-4541-b05b-4f68b26048a4"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "client_id",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.seatgeek.com/2"
+    }
+  ]
+}

@@ -1,0 +1,381 @@
+{
+  "info": {
+    "_postman_id": "a49caee0-f2d9-4f41-9264-c829c01ce1e8",
+    "name": "SeatGeek Platform Events Venues API",
+    "description": "The SeatGeek Platform API provides access to SeatGeek's comprehensive dataset of live events in the United States and Canada. Search events, performers, venues, taxonomies, and get personalized recommendations. The API supports JSON, JSONP, and XML response formats with pagination and geolocation filtering.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:51.000Z",
+    "updatedAt": "2026-07-28T02:51:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a49caee0-f2d9-4f41-9264-c829c01ce1e8"
+  },
+  "item": [
+    {
+      "name": "venues",
+      "item": [
+        {
+          "name": "{venue_id}",
+          "item": [
+            {
+              "name": "Get Venue",
+              "id": "36db60a7-d282-490a-a1fd-517950a40f77",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/venues/:venue_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "venues",
+                    ":venue_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "66f7bd2e-31b7-416e-b4f7-55a57deef0a3",
+                      "key": "venue_id",
+                      "value": "<integer>",
+                      "description": "(Required) SeatGeek venue ID"
+                    }
+                  ]
+                },
+                "description": "Returns a single venue document with full details."
+              },
+              "response": [
+                {
+                  "id": "f4012931-4c7b-4645-844f-f862150d9388",
+                  "name": "Venue details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/venues/:venue_id?client_id=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "venues",
+                        ":venue_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "client_id",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "venue_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"location\": {\n    \"lat\": \"<number>\",\n    \"lon\": \"<number>\"\n  },\n  \"url\": \"<uri>\",\n  \"score\": \"<number>\",\n  \"capacity\": \"<integer>\",\n  \"timezone\": \"<string>\",\n  \"has_upcoming_events\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T02:51:52.000Z",
+                  "updatedAt": "2026-07-28T02:51:52.000Z",
+                  "uid": "35240-f4012931-4c7b-4645-844f-f862150d9388"
+                },
+                {
+                  "id": "60e4ff44-8459-4620-9a3b-bbf9b23f7147",
+                  "name": "Venue not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/venues/:venue_id?client_id=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "venues",
+                        ":venue_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "client_id",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "venue_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:51:52.000Z",
+                  "updatedAt": "2026-07-28T02:51:52.000Z",
+                  "uid": "35240-60e4ff44-8459-4620-9a3b-bbf9b23f7147"
+                }
+              ],
+              "createdAt": "2026-07-28T02:51:52.000Z",
+              "updatedAt": "2026-07-28T02:51:52.000Z",
+              "uid": "35240-36db60a7-d282-490a-a1fd-517950a40f77"
+            }
+          ],
+          "id": "611c3e04-bf5d-4a84-8e2d-f39984703ea2",
+          "createdAt": "2026-07-28T02:51:52.000Z",
+          "updatedAt": "2026-07-28T02:51:52.000Z",
+          "uid": "35240-611c3e04-bf5d-4a84-8e2d-f39984703ea2"
+        },
+        {
+          "name": "List Venues",
+          "id": "a90129df-5906-40f8-99d5-7d6e447b930c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/venues?city=<string>&state=<string>&country=<string>&postal_code=<string>&q=<string>&id=<string>&geoip=<boolean>&lat=<number>&lon=<number>&range=<string>&per_page=10&page=1&sort=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "venues"
+              ],
+              "query": [
+                {
+                  "description": "Filter by city name",
+                  "key": "city",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by US state abbreviation",
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by country code",
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by postal code",
+                  "key": "postal_code",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Text search query",
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Venue ID (comma-separated for multiple)",
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "key": "geoip",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "lat",
+                  "value": "<number>"
+                },
+                {
+                  "key": "lon",
+                  "value": "<number>"
+                },
+                {
+                  "key": "range",
+                  "value": "<string>"
+                },
+                {
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "sort",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a paginated list of venues. Filter by city, state, country, postal code, geolocation, or text search."
+          },
+          "response": [
+            {
+              "id": "167b9dab-5ab0-4485-aed0-3deec2ce6e28",
+              "name": "List of venues",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/venues?city=<string>&state=<string>&country=<string>&postal_code=<string>&q=<string>&id=<string>&geoip=<boolean>&lat=<number>&lon=<number>&range=<string>&per_page=10&page=1&sort=<string>&client_id=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "venues"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by city name",
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by US state abbreviation",
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by country code",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by postal code",
+                      "key": "postal_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Text search query",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Venue ID (comma-separated for multiple)",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "geoip",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Added as a part of security scheme: apikey",
+                      "key": "client_id",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"venues\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\",\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postal_code\": \"<string>\",\n      \"location\": {\n        \"lat\": \"<number>\",\n        \"lon\": \"<number>\"\n      },\n      \"url\": \"<uri>\",\n      \"score\": \"<number>\",\n      \"capacity\": \"<integer>\",\n      \"timezone\": \"<string>\",\n      \"has_upcoming_events\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\",\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postal_code\": \"<string>\",\n      \"location\": {\n        \"lat\": \"<number>\",\n        \"lon\": \"<number>\"\n      },\n      \"url\": \"<uri>\",\n      \"score\": \"<number>\",\n      \"capacity\": \"<integer>\",\n      \"timezone\": \"<string>\",\n      \"has_upcoming_events\": \"<boolean>\"\n    }\n  ],\n  \"meta\": {\n    \"total\": \"<integer>\",\n    \"took\": \"<number>\",\n    \"page\": \"<integer>\",\n    \"per_page\": \"<integer>\",\n    \"geolocation\": {}\n  }\n}",
+              "createdAt": "2026-07-28T02:51:52.000Z",
+              "updatedAt": "2026-07-28T02:51:52.000Z",
+              "uid": "35240-167b9dab-5ab0-4485-aed0-3deec2ce6e28"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:52.000Z",
+          "updatedAt": "2026-07-28T02:51:52.000Z",
+          "uid": "35240-a90129df-5906-40f8-99d5-7d6e447b930c"
+        }
+      ],
+      "id": "72f30d65-8a4a-4e0c-a33a-01ea5357ff7b",
+      "createdAt": "2026-07-28T02:51:52.000Z",
+      "updatedAt": "2026-07-28T02:51:52.000Z",
+      "uid": "35240-72f30d65-8a4a-4e0c-a33a-01ea5357ff7b"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "client_id",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.seatgeek.com/2"
+    }
+  ]
+}

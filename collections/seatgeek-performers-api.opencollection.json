@@ -1,0 +1,103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SeatGeek Platform Events Performers API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "client_id",
+      "value": "{{client_id}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Performers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Performers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/performers",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query",
+                "description": "Performer slug identifier"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Text search query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Performer ID (comma-separated for multiple)"
+              },
+              {
+                "name": "taxonomies.name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by taxonomy name"
+              },
+              {
+                "name": "genres.name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by genre name"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of performers. Filter by slug, taxonomy, genre, or text search. Performers represent artists, teams, or any entity that appears at events."
+        },
+        {
+          "info": {
+            "name": "Get Performer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/performers/:performer_id",
+            "params": [
+              {
+                "name": "performer_id",
+                "value": "",
+                "type": "path",
+                "description": "SeatGeek performer ID"
+              }
+            ]
+          },
+          "docs": "Returns a single performer document with full details."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

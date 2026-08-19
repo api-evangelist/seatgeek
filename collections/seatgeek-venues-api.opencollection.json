@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SeatGeek Platform Events Venues API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "client_id",
+      "value": "{{client_id}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Venues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Venues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/venues",
+            "params": [
+              {
+                "name": "city",
+                "value": "",
+                "type": "query",
+                "description": "Filter by city name"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Filter by US state abbreviation"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Filter by country code"
+              },
+              {
+                "name": "postal_code",
+                "value": "",
+                "type": "query",
+                "description": "Filter by postal code"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Text search query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Venue ID (comma-separated for multiple)"
+              },
+              {
+                "name": "geoip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of venues. Filter by city, state, country, postal code, geolocation, or text search."
+        },
+        {
+          "info": {
+            "name": "Get Venue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/venues/:venue_id",
+            "params": [
+              {
+                "name": "venue_id",
+                "value": "",
+                "type": "path",
+                "description": "SeatGeek venue ID"
+              }
+            ]
+          },
+          "docs": "Returns a single venue document with full details."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,154 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SeatGeek Platform Events API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "client_id",
+      "value": "{{client_id}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/events",
+            "params": [
+              {
+                "name": "performers",
+                "value": "",
+                "type": "query",
+                "description": "Filter by performer slug or ID"
+              },
+              {
+                "name": "venue",
+                "value": "",
+                "type": "query",
+                "description": "Filter by venue ID"
+              },
+              {
+                "name": "datetime_utc.gte",
+                "value": "",
+                "type": "query",
+                "description": "Filter events on or after this UTC datetime"
+              },
+              {
+                "name": "datetime_utc.lte",
+                "value": "",
+                "type": "query",
+                "description": "Filter events on or before this UTC datetime"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Text search query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by event ID (comma-separated for multiple)"
+              },
+              {
+                "name": "taxonomies.name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by taxonomy name (e.g., \"concert\", \"sports\")"
+              },
+              {
+                "name": "geoip",
+                "value": "",
+                "type": "query",
+                "description": "Use requester IP for geolocation filtering"
+              },
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude for geolocation filtering"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude for geolocation filtering"
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "query",
+                "description": "Distance range for geolocation filtering (e.g., \"25mi\")"
+              },
+              {
+                "name": "lowest_price.gte",
+                "value": "",
+                "type": "query",
+                "description": "Minimum lowest ticket price filter"
+              },
+              {
+                "name": "highest_price.lte",
+                "value": "",
+                "type": "query",
+                "description": "Maximum highest ticket price filter"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (max 5000)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort field and direction (e.g., \"datetime_utc.asc\")"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of all events. Supports filtering by performer, venue, date, taxonomy, geolocation, price range, and text search. Results include event details, venue information, performer lineup, and ticket pricing statistics."
+        },
+        {
+          "info": {
+            "name": "Get Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/events/:event_id",
+            "params": [
+              {
+                "name": "event_id",
+                "value": "",
+                "type": "path",
+                "description": "SeatGeek event ID"
+              }
+            ]
+          },
+          "docs": "Returns a single event document with full details."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

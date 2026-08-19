@@ -1,0 +1,338 @@
+{
+  "item": [
+    {
+      "id": "7da1de0a-2eca-4893-9c66-9d0dadcbb4a1",
+      "name": "Performers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b0deda3e-ae4e-404f-ba43-801cfb1172d9",
+          "name": "List Performers",
+          "request": {
+            "name": "List Performers",
+            "description": {
+              "content": "Returns a paginated list of performers. Filter by slug, taxonomy, genre, or text search. Performers represent artists, teams, or any entity that appears at events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "performers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Performer slug identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Text search query"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "Performer ID (comma-separated for multiple)"
+                },
+                {
+                  "disabled": false,
+                  "key": "taxonomies.name",
+                  "value": "<string>",
+                  "description": "Filter by taxonomy name"
+                },
+                {
+                  "disabled": false,
+                  "key": "genres.name",
+                  "value": "<string>",
+                  "description": "Filter by genre name"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "025c8fbe-3a78-493e-9a88-015eab4b92f1",
+              "name": "List of performers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "performers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "taxonomies.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "genres.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"performers\": [\n    {\n      \"id\": 4963,\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"type\": \"string\",\n      \"image\": \"http://YT.kvjhs6QZF70akHvyTXAQQtGuFomCiYoN1VdywbE8PZV1-UMU1OKghiZd3HDu7\",\n      \"images\": {},\n      \"taxonomies\": [\n        {\n          \"id\": 5396,\n          \"name\": \"string\",\n          \"parent_id\": 7782,\n          \"document_source\": {}\n        },\n        {\n          \"id\": 9602,\n          \"name\": \"string\",\n          \"parent_id\": 4708,\n          \"document_source\": {}\n        }\n      ],\n      \"genres\": [\n        {\n          \"id\": 3869,\n          \"name\": \"string\",\n          \"slug\": \"string\"\n        },\n        {\n          \"id\": 173,\n          \"name\": \"string\",\n          \"slug\": \"string\"\n        }\n      ],\n      \"score\": 8209.999905372753,\n      \"url\": \"https://BoILpKmuybiMRESnaEjVkKShbNc.kcvrwkEP24lHZKqmUpL1QmEa983+8Lfzf\",\n      \"stats\": {\n        \"event_count\": 8240\n      }\n    },\n    {\n      \"id\": 246,\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"type\": \"string\",\n      \"image\": \"http://yXCU.pkbctYE07Eh57aBPh3,wjS4qXt73ZU5t99O5H-Q.kcqyKL57YjWFLdec1pWLfm0DFZb+cpn-KSA\",\n      \"images\": {},\n      \"taxonomies\": [\n        {\n          \"id\": 9549,\n          \"name\": \"string\",\n          \"parent_id\": 7665,\n          \"document_source\": {}\n        },\n        {\n          \"id\": 5995,\n          \"name\": \"string\",\n          \"parent_id\": 8956,\n          \"document_source\": {}\n        }\n      ],\n      \"genres\": [\n        {\n          \"id\": 1454,\n          \"name\": \"string\",\n          \"slug\": \"string\"\n        },\n        {\n          \"id\": 9296,\n          \"name\": \"string\",\n          \"slug\": \"string\"\n        }\n      ],\n      \"score\": 9065.696722646007,\n      \"url\": \"http://sidCUjkDcjkWQfnxVVDowoHP.yvjpbusm0-,pOObo14NFebNYeh+OUCYFe3ilc80zRwe0,wTmKyv9dINV1qFJ7El,gz-eQt1.yry+9h\",\n      \"stats\": {\n        \"event_count\": 5500\n      }\n    }\n  ],\n  \"meta\": {\n    \"total\": 9627,\n    \"took\": 8238.488353443225,\n    \"page\": 4603,\n    \"per_page\": 5804,\n    \"geolocation\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd433818-4a42-4b39-8230-641b5651c08a",
+          "name": "Get Performer",
+          "request": {
+            "name": "Get Performer",
+            "description": {
+              "content": "Returns a single performer document with full details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "performers",
+                ":performer_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "performer_id",
+                  "description": "(Required) SeatGeek performer ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91ca9cfb-a3dd-433e-a730-9c0312f98ae5",
+              "name": "Performer details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "performers",
+                    ":performer_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "performer_id",
+                      "description": "(Required) SeatGeek performer ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 348,\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"type\": \"string\",\n  \"image\": \"https://RTChajCSWRPwoaKtCWTh.iwesxP.qnkTD-3ugwx-lIRZiKvYf3bhwblmVXffriOKCpCH,XYaMYhHslW2\",\n  \"images\": {},\n  \"taxonomies\": [\n    {\n      \"id\": 4442,\n      \"name\": \"string\",\n      \"parent_id\": 7810,\n      \"document_source\": {}\n    },\n    {\n      \"id\": 8929,\n      \"name\": \"string\",\n      \"parent_id\": 4618,\n      \"document_source\": {}\n    }\n  ],\n  \"genres\": [\n    {\n      \"id\": 8227,\n      \"name\": \"string\",\n      \"slug\": \"string\"\n    },\n    {\n      \"id\": 1507,\n      \"name\": \"string\",\n      \"slug\": \"string\"\n    }\n  ],\n  \"score\": 1734.3581609923476,\n  \"url\": \"http://NUWJzynDhc.zvgpRpFsicphRqXy3ya3\",\n  \"stats\": {\n    \"event_count\": 7902\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf28c45d-9db3-4d86-9803-ad3302f981d6",
+              "name": "Performer not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "performers",
+                    ":performer_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "performer_id",
+                      "description": "(Required) SeatGeek performer ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.seatgeek.com/2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "client_id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bf680b02-133c-4d6f-98b8-5fe249175fbc",
+    "name": "SeatGeek Platform Events Performers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SeatGeek Platform API provides access to SeatGeek's comprehensive dataset of live events in the United States and Canada. Search events, performers, venues, taxonomies, and get personalized recommendations. The API supports JSON, JSONP, and XML response formats with pagination and geolocation filtering.",
+      "type": "text/plain"
+    }
+  }
+}

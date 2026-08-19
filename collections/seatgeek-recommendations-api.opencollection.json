@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SeatGeek Platform Events Recommendations API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "client_id",
+      "value": "{{client_id}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Recommendations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Event Recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/recommendations",
+            "params": [
+              {
+                "name": "performers.id",
+                "value": "",
+                "type": "query",
+                "description": "Seed performer IDs for recommendations"
+              },
+              {
+                "name": "events.id",
+                "value": "",
+                "type": "query",
+                "description": "Seed event IDs for recommendations"
+              },
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude for geolocation (required)"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude for geolocation (required)"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns personalized event recommendations based on seed performers or events and geolocation. Requires API key access."
+        },
+        {
+          "info": {
+            "name": "Get Performer Recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.seatgeek.com/2/recommendations/performers",
+            "params": [
+              {
+                "name": "performers.id",
+                "value": "",
+                "type": "query",
+                "description": "Seed performer IDs"
+              },
+              {
+                "name": "events.id",
+                "value": "",
+                "type": "query",
+                "description": "Seed event IDs"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of performer recommendation documents with affinity scores. Requires API key access."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

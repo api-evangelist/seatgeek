@@ -1,0 +1,299 @@
+{
+  "item": [
+    {
+      "id": "90b859cf-0fa2-4a65-b9db-ca71db95cf31",
+      "name": "Recommendations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c28129b0-53c4-441a-93af-8a29a367aeb5",
+          "name": "Get Event Recommendations",
+          "request": {
+            "name": "Get Event Recommendations",
+            "description": {
+              "content": "Returns personalized event recommendations based on seed performers or events and geolocation. Requires API key access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recommendations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "performers.id",
+                  "value": "<string>",
+                  "description": "Seed performer IDs for recommendations"
+                },
+                {
+                  "disabled": false,
+                  "key": "events.id",
+                  "value": "<string>",
+                  "description": "Seed event IDs for recommendations"
+                },
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<number>",
+                  "description": "(Required) Latitude for geolocation (required)"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "<number>",
+                  "description": "(Required) Longitude for geolocation (required)"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "83cde03f-a27d-4a3e-a7cf-81317ddb7ea1",
+              "name": "Personalized event recommendations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recommendations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "performers.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "events.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"recommendations\": [\n    {\n      \"event\": {\n        \"id\": 4429,\n        \"title\": \"string\",\n        \"short_title\": \"string\",\n        \"datetime_utc\": \"1950-01-06T16:40:04.128Z\",\n        \"datetime_local\": \"1948-01-19T00:35:32.151Z\",\n        \"datetime_tbd\": true,\n        \"venue\": {\n          \"id\": 119,\n          \"name\": \"string\",\n          \"slug\": \"string\",\n          \"address\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"country\": \"string\",\n          \"postal_code\": \"string\",\n          \"location\": {\n            \"lat\": 3960.8433857543378,\n            \"lon\": 5867.115801654476\n          },\n          \"url\": \"https://yNLQuUVcbRMOtEbKFXAspAQJTKtELCz.abviKHPmW4-m\",\n          \"score\": 7044.353871915834,\n          \"capacity\": 2908,\n          \"timezone\": \"string\",\n          \"has_upcoming_events\": true\n        },\n        \"performers\": [\n          {\n            \"id\": 7014,\n            \"name\": \"string\",\n            \"slug\": \"string\",\n            \"type\": \"string\",\n            \"image\": \"https://wJQkN.tdkakD+E\",\n            \"images\": {},\n            \"taxonomies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"genres\": [\n              {\n                \"id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"slug\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"slug\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ],\n            \"score\": 9188.112040103904,\n            \"url\": \"https://sLjQQQnXveQDLoYtDdHKwqWFzjPQDET.yrZNFlJpwA+rJcUYGSm1\",\n            \"stats\": {\n              \"event_count\": 7718\n            }\n          },\n          {\n            \"id\": 2010,\n            \"name\": \"string\",\n            \"slug\": \"string\",\n            \"type\": \"string\",\n            \"image\": \"https://JrSyZgEXi.tcPVP,.nE,BYSQEqureuSNh9CUPW2a8Xq+KNJCbzjrcmmqswD7d7i.gYuNkgjMJBnY\",\n            \"images\": {},\n            \"taxonomies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"genres\": [\n              {\n                \"id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"slug\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"slug\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ],\n            \"score\": 7613.021648854578,\n            \"url\": \"http://tyDyJKXGcqkArCCuSVOQPyWkLGS.xxwlDY+NAaIFKJPZjh4lSXeir4gD4jJ,tFSKTp1J-C4z.GxYp.TcidD\",\n            \"stats\": {\n              \"event_count\": 5107\n            }\n          }\n        ],\n        \"taxonomies\": [\n          {\n            \"id\": 8571,\n            \"name\": \"string\",\n            \"parent_id\": 6339,\n            \"document_source\": {}\n          },\n          {\n            \"id\": 6821,\n            \"name\": \"string\",\n            \"parent_id\": 2842,\n            \"document_source\": {}\n          }\n        ],\n        \"stats\": {\n          \"listing_count\": 8668,\n          \"average_price\": 6498.980379903819,\n          \"lowest_price\": 7072.800399303617,\n          \"highest_price\": 6201.580645181442,\n          \"median_price\": 5252.408507560586\n        },\n        \"url\": \"string\",\n        \"type\": \"string\",\n        \"score\": 4441.790145530763,\n        \"announce_date\": \"2003-01-04\",\n        \"status\": \"normal\"\n      },\n      \"score\": 7286.349359126798\n    },\n    {\n      \"event\": {\n        \"id\": 8219,\n        \"title\": \"string\",\n        \"short_title\": \"string\",\n        \"datetime_utc\": \"1956-06-27T22:05:47.308Z\",\n        \"datetime_local\": \"2005-07-24T13:14:30.139Z\",\n        \"datetime_tbd\": false,\n        \"venue\": {\n          \"id\": 7325,\n          \"name\": \"string\",\n          \"slug\": \"string\",\n          \"address\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"country\": \"string\",\n          \"postal_code\": \"string\",\n          \"location\": {\n            \"lat\": 6683.244876281099,\n            \"lon\": 8447.638613416333\n          },\n          \"url\": \"https://YuObwqOeEBahNfpreAY.uuhD2Eqo-uBWX\",\n          \"score\": 5490.66486328519,\n          \"capacity\": 8435,\n          \"timezone\": \"string\",\n          \"has_upcoming_events\": false\n        },\n        \"performers\": [\n          {\n            \"id\": 3311,\n            \"name\": \"string\",\n            \"slug\": \"string\",\n            \"type\": \"string\",\n            \"image\": \"http://Admr.gmwkB\",\n            \"images\": {},\n            \"taxonomies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"genres\": [\n              {\n                \"id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"slug\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"slug\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ],\n            \"score\": 1313.943375205806,\n            \"url\": \"https://uElCuigJvwgH.hztNNWC8-4nWOxBsWTO1ajQr\",\n            \"stats\": {\n              \"event_count\": 6178\n            }\n          },\n          {\n            \"id\": 1111,\n            \"name\": \"string\",\n            \"slug\": \"string\",\n            \"type\": \"string\",\n            \"image\": \"http://r.sopVM4Hxt60MywBTEFldTeWtrK72taSZbXYtOpSaj3Cutk\",\n            \"images\": {},\n            \"taxonomies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"genres\": [\n              {\n                \"id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"slug\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"slug\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ],\n            \"score\": 5800.883357978781,\n            \"url\": \"https://TdwQIwXareALLSkCiiXxYBpCgFicG.cxUTIQFrPqsym80GN\",\n            \"stats\": {\n              \"event_count\": 9289\n            }\n          }\n        ],\n        \"taxonomies\": [\n          {\n            \"id\": 6835,\n            \"name\": \"string\",\n            \"parent_id\": 5173,\n            \"document_source\": {}\n          },\n          {\n            \"id\": 4135,\n            \"name\": \"string\",\n            \"parent_id\": 4977,\n            \"document_source\": {}\n          }\n        ],\n        \"stats\": {\n          \"listing_count\": 4726,\n          \"average_price\": 817.118037399912,\n          \"lowest_price\": 9712.125551338542,\n          \"highest_price\": 1184.3984455696223,\n          \"median_price\": 4229.781883605905\n        },\n        \"url\": \"string\",\n        \"type\": \"string\",\n        \"score\": 6849.235324997412,\n        \"announce_date\": \"1960-02-21\",\n        \"status\": \"contingent\"\n      },\n      \"score\": 1918.8252900876646\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51522fe7-9a4c-481a-afa7-7cea587bf315",
+          "name": "Get Performer Recommendations",
+          "request": {
+            "name": "Get Performer Recommendations",
+            "description": {
+              "content": "Returns a paginated list of performer recommendation documents with affinity scores. Requires API key access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recommendations",
+                "performers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "performers.id",
+                  "value": "<string>",
+                  "description": "Seed performer IDs"
+                },
+                {
+                  "disabled": false,
+                  "key": "events.id",
+                  "value": "<string>",
+                  "description": "Seed event IDs"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6fdedd46-cf1b-41ba-81aa-5069b76fef6b",
+              "name": "Performer recommendations with affinity scores",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recommendations",
+                    "performers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "performers.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "events.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"recommendations\": [\n    {\n      \"performer\": {\n        \"id\": 3688,\n        \"name\": \"string\",\n        \"slug\": \"string\",\n        \"type\": \"string\",\n        \"image\": \"http://CpQLatqYqQW.zcwZFTCd8cZk9Y3me\",\n        \"images\": {},\n        \"taxonomies\": [\n          {\n            \"id\": 4793,\n            \"name\": \"string\",\n            \"parent_id\": 3983,\n            \"document_source\": {}\n          },\n          {\n            \"id\": 2845,\n            \"name\": \"string\",\n            \"parent_id\": 9237,\n            \"document_source\": {}\n          }\n        ],\n        \"genres\": [\n          {\n            \"id\": 9553,\n            \"name\": \"string\",\n            \"slug\": \"string\"\n          },\n          {\n            \"id\": 3368,\n            \"name\": \"string\",\n            \"slug\": \"string\"\n          }\n        ],\n        \"score\": 7915.527637218821,\n        \"url\": \"https://wGJViQqXHLNrcxiwPdnCYUinShEM.ojsd7NQRchukqUU7Fy8fGCsSlD+N8Ne52PscG4lVhtve7.gBmOI\",\n        \"stats\": {\n          \"event_count\": 7777\n        }\n      },\n      \"score\": 5403.187152459747\n    },\n    {\n      \"performer\": {\n        \"id\": 9902,\n        \"name\": \"string\",\n        \"slug\": \"string\",\n        \"type\": \"string\",\n        \"image\": \"http://ZdFLkVQMtwbL.brfgemuMPIZgIBsDOxbfUqLfcmqDCjeBoqMhT.GjSRHC.uuLMrfL-nL1MgT9\",\n        \"images\": {},\n        \"taxonomies\": [\n          {\n            \"id\": 9083,\n            \"name\": \"string\",\n            \"parent_id\": 1070,\n            \"document_source\": {}\n          },\n          {\n            \"id\": 4980,\n            \"name\": \"string\",\n            \"parent_id\": 271,\n            \"document_source\": {}\n          }\n        ],\n        \"genres\": [\n          {\n            \"id\": 7346,\n            \"name\": \"string\",\n            \"slug\": \"string\"\n          },\n          {\n            \"id\": 1730,\n            \"name\": \"string\",\n            \"slug\": \"string\"\n          }\n        ],\n        \"score\": 9281.680922905438,\n        \"url\": \"https://rKotZYZebUHhBZeKrEPmZfFewmKqfwS.cozIhoc58ImCq44gXiupegsSGHs6bs7LXa4wStoH0XKMZkXHFFLTlPrVyvRAp+IDphLHRaNMnoNVl\",\n        \"stats\": {\n          \"event_count\": 9257\n        }\n      },\n      \"score\": 1937.9053192433914\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.seatgeek.com/2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "client_id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bdd1ff38-05d3-43a2-9dd1-6c1f82936332",
+    "name": "SeatGeek Platform Events Recommendations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SeatGeek Platform API provides access to SeatGeek's comprehensive dataset of live events in the United States and Canada. Search events, performers, venues, taxonomies, and get personalized recommendations. The API supports JSON, JSONP, and XML response formats with pagination and geolocation filtering.",
+      "type": "text/plain"
+    }
+  }
+}

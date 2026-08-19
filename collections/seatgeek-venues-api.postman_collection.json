@@ -1,0 +1,384 @@
+{
+  "item": [
+    {
+      "id": "04169b2e-8680-438c-8a9f-2ba6e8d81cb3",
+      "name": "Venues",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "74bcb5d7-c42f-4f93-8721-43fd3536f6e7",
+          "name": "List Venues",
+          "request": {
+            "name": "List Venues",
+            "description": {
+              "content": "Returns a paginated list of venues. Filter by city, state, country, postal code, geolocation, or text search.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "venues"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "city",
+                  "value": "<string>",
+                  "description": "Filter by city name"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "Filter by US state abbreviation"
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "Filter by country code"
+                },
+                {
+                  "disabled": false,
+                  "key": "postal_code",
+                  "value": "<string>",
+                  "description": "Filter by postal code"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Text search query"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "Venue ID (comma-separated for multiple)"
+                },
+                {
+                  "disabled": false,
+                  "key": "geoip",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "range",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e40a3522-ecc3-443f-b8d1-c4fe40803584",
+              "name": "List of venues",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "venues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postal_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "geoip",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"venues\": [\n    {\n      \"id\": 651,\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"address\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"country\": \"string\",\n      \"postal_code\": \"string\",\n      \"location\": {\n        \"lat\": 7078.016906468481,\n        \"lon\": 2653.2157934547886\n      },\n      \"url\": \"http://mblAhPavHR.gvpWW3,54qFq4eImJFg4WRKa6juB7XDBMWsePuwuHR\",\n      \"score\": 1108.9364112310607,\n      \"capacity\": 5280,\n      \"timezone\": \"string\",\n      \"has_upcoming_events\": true\n    },\n    {\n      \"id\": 6957,\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"address\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"country\": \"string\",\n      \"postal_code\": \"string\",\n      \"location\": {\n        \"lat\": 3962.049840090427,\n        \"lon\": 5456.215719216359\n      },\n      \"url\": \"https://iMPZMOW.vjepe.tjOkqPlcwHpw2A4QRen\",\n      \"score\": 4036.0389905795737,\n      \"capacity\": 7721,\n      \"timezone\": \"string\",\n      \"has_upcoming_events\": true\n    }\n  ],\n  \"meta\": {\n    \"total\": 2966,\n    \"took\": 1450.7763160690956,\n    \"page\": 4080,\n    \"per_page\": 1566,\n    \"geolocation\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2158a4c-7c9e-437f-a841-7e68333cded6",
+          "name": "Get Venue",
+          "request": {
+            "name": "Get Venue",
+            "description": {
+              "content": "Returns a single venue document with full details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "venues",
+                ":venue_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "venue_id",
+                  "description": "(Required) SeatGeek venue ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc4bbd17-79a6-44ce-b9e1-b1517ce7af0d",
+              "name": "Venue details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "venues",
+                    ":venue_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "venue_id",
+                      "description": "(Required) SeatGeek venue ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6759,\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"address\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"country\": \"string\",\n  \"postal_code\": \"string\",\n  \"location\": {\n    \"lat\": 7595.405748938606,\n    \"lon\": 5108.164780048599\n  },\n  \"url\": \"https://RV.zxbWzd8BsuL60Lwa\",\n  \"score\": 378.14928126355676,\n  \"capacity\": 8487,\n  \"timezone\": \"string\",\n  \"has_upcoming_events\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1be797b4-3da0-4d8b-8e77-eec90a503c35",
+              "name": "Venue not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "venues",
+                    ":venue_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "venue_id",
+                      "description": "(Required) SeatGeek venue ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.seatgeek.com/2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "client_id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3d056520-c1dd-4816-8097-41ad4e511136",
+    "name": "SeatGeek Platform Events Venues API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SeatGeek Platform API provides access to SeatGeek's comprehensive dataset of live events in the United States and Canada. Search events, performers, venues, taxonomies, and get personalized recommendations. The API supports JSON, JSONP, and XML response formats with pagination and geolocation filtering.",
+      "type": "text/plain"
+    }
+  }
+}

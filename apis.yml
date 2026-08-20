@@ -7,6 +7,8 @@ apis:
   humanURL: https://seatgeek.com/build
   baseURL: https://api.seatgeek.com/2
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -49,6 +51,8 @@ apis:
   humanURL: https://seatgeek.com/build
   baseURL: https://api.seatgeek.com/2
   tags:
+  - taxonomies
+  tags_raw:
   - Taxonomies
   properties:
   - type: OpenAPI
@@ -73,6 +77,14 @@ apis:
     url: https://seatgeek.com/build
 name: SeatGeek
 tags:
+  - Event
+  - Tickets
+  - Live Events
+  - Concerts
+  - Sports
+  - Venues
+  - Ticketing
+tags_raw:
   - Events
   - Tickets
   - Live Events

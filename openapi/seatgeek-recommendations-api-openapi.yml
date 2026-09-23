@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SeatGeek Platform Events Recommendations API
+  title: SeatGeek Platform Recommendations API
   description: The SeatGeek Platform API provides access to SeatGeek's comprehensive dataset of live events in the United States and Canada. Search events, performers, venues, taxonomies, and get personalized recommendations. The API supports JSON, JSONP, and XML response formats with pagination and geolocation filtering.
   version: '2'
   contact:
@@ -119,6 +119,47 @@ paths:
                           type: number
 components:
   schemas:
+    Performer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        image:
+          type: string
+          format: uri
+        images:
+          type: object
+        taxonomies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Taxonomy'
+        genres:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              slug:
+                type: string
+        score:
+          type: number
+        url:
+          type: string
+          format: uri
+        stats:
+          type: object
+          properties:
+            event_count:
+              type: integer
     Venue:
       type: object
       properties:
@@ -164,51 +205,11 @@ components:
         name:
           type: string
         parent_id:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         document_source:
           type: object
-    Performer:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        slug:
-          type: string
-        type:
-          type: string
-        image:
-          type: string
-          format: uri
-        images:
-          type: object
-        taxonomies:
-          type: array
-          items:
-            $ref: '#/components/schemas/Taxonomy'
-        genres:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-              name:
-                type: string
-              slug:
-                type: string
-        score:
-          type: number
-        url:
-          type: string
-          format: uri
-        stats:
-          type: object
-          properties:
-            event_count:
-              type: integer
     Event:
       type: object
       properties:

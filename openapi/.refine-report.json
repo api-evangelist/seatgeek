@@ -1,11 +1,7 @@
 {
   "provider": "seatgeek",
   "sources": [
-    "seatgeek-events-api-openapi.yml",
-    "seatgeek-performers-api-openapi.yml",
-    "seatgeek-recommendations-api-openapi.yml",
-    "seatgeek-taxonomies-api-openapi.yml",
-    "seatgeek-venues-api-openapi.yml"
+    "_original/seatgeek-platform-openapi.yml"
   ],
   "outputs": [
     "seatgeek-events-api-openapi.yml",
@@ -17,6 +13,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "seatgeek-platform-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "seatgeek-platform-openapi.yml: declared missing tag: Events",
+    "seatgeek-platform-openapi.yml: declared missing tag: Performers",
+    "seatgeek-platform-openapi.yml: declared missing tag: Recommendations",
+    "seatgeek-platform-openapi.yml: declared missing tag: Taxonomies",
+    "seatgeek-platform-openapi.yml: declared missing tag: Venues",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "seatgeek-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "seatgeek-performers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "seatgeek-recommendations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "seatgeek-taxonomies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "seatgeek-venues-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

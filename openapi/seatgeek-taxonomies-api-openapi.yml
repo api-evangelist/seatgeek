@@ -30,6 +30,13 @@ paths:
                 $ref: '#/components/schemas/TaxonomiesResponse'
 components:
   schemas:
+    TaxonomiesResponse:
+      type: object
+      properties:
+        taxonomies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Taxonomy'
     Taxonomy:
       type: object
       properties:
@@ -43,13 +50,6 @@ components:
           - 'null'
         document_source:
           type: object
-    TaxonomiesResponse:
-      type: object
-      properties:
-        taxonomies:
-          type: array
-          items:
-            $ref: '#/components/schemas/Taxonomy'
   securitySchemes:
     clientId:
       type: apiKey

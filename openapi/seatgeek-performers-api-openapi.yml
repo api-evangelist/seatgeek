@@ -135,6 +135,22 @@ components:
           properties:
             event_count:
               type: integer
+    Meta:
+      type: object
+      properties:
+        total:
+          type: integer
+        took:
+          type: number
+          description: Query execution time in milliseconds
+        page:
+          type: integer
+        per_page:
+          type: integer
+        geolocation:
+          type:
+          - object
+          - 'null'
     PerformersResponse:
       type: object
       properties:
@@ -157,22 +173,6 @@ components:
           - 'null'
         document_source:
           type: object
-    Meta:
-      type: object
-      properties:
-        total:
-          type: integer
-        took:
-          type: number
-          description: Query execution time in milliseconds
-        page:
-          type: integer
-        per_page:
-          type: integer
-        geolocation:
-          type:
-          - object
-          - 'null'
   securitySchemes:
     clientId:
       type: apiKey

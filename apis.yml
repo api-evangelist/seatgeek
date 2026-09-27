@@ -78,12 +78,11 @@ apis:
 name: SeatGeek
 tags:
   - Event
-  - Tickets
+  - Ticketing
   - Live Events
   - Concerts
   - Sports
   - Venues
-  - Ticketing
 tags_raw:
   - Events
   - Tickets

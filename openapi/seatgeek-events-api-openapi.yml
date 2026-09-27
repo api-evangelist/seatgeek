@@ -141,56 +141,22 @@ paths:
           description: Event not found
 components:
   schemas:
-    Performer:
+    Meta:
       type: object
       properties:
-        id:
+        total:
           type: integer
-        name:
-          type: string
-        slug:
-          type: string
-        type:
-          type: string
-        image:
-          type: string
-          format: uri
-        images:
-          type: object
-        taxonomies:
-          type: array
-          items:
-            $ref: '#/components/schemas/Taxonomy'
-        genres:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-              name:
-                type: string
-              slug:
-                type: string
-        score:
+        took:
           type: number
-        url:
-          type: string
-          format: uri
-        stats:
-          type: object
-          properties:
-            event_count:
-              type: integer
-    EventsResponse:
-      type: object
-      properties:
-        events:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
-        meta:
-          $ref: '#/components/schemas/Meta'
+          description: Query execution time in milliseconds
+        page:
+          type: integer
+        per_page:
+          type: integer
+        geolocation:
+          type:
+          - object
+          - 'null'
     Venue:
       type: object
       properties:
@@ -241,6 +207,56 @@ components:
           - 'null'
         document_source:
           type: object
+    Performer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        image:
+          type: string
+          format: uri
+        images:
+          type: object
+        taxonomies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Taxonomy'
+        genres:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              slug:
+                type: string
+        score:
+          type: number
+        url:
+          type: string
+          format: uri
+        stats:
+          type: object
+          properties:
+            event_count:
+              type: integer
+    EventsResponse:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+        meta:
+          $ref: '#/components/schemas/Meta'
     Event:
       type: object
       properties:
@@ -299,22 +315,6 @@ components:
           - cancelled
           - rescheduled
           - contingent
-    Meta:
-      type: object
-      properties:
-        total:
-          type: integer
-        took:
-          type: number
-          description: Query execution time in milliseconds
-        page:
-          type: integer
-        per_page:
-          type: integer
-        geolocation:
-          type:
-          - object
-          - 'null'
   securitySchemes:
     clientId:
       type: apiKey

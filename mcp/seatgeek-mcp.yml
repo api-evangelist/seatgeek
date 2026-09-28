@@ -16,10 +16,18 @@ deployment:
 tools_count: 3
 tools:
 - name: geocode_location
-  description: ''
+  description: Convert a place name into geographic coordinates (lat,lon) and a canonical display name.
+    Use this before calling eventSearch when the user names a place (e.g. "Brooklyn", "Austin", "Toronto").
+    Pass a bare city or place name; "City, State" s
 - name: my_tickets
-  description: ''
+  description: 'Look up the signed-in user''s tickets across past and upcoming events.  Two modes: 1.
+    Browse — leave `event_ids` empty. Use `filter` (upcoming/past/all) and optional `query` for free-text
+    search across event title, performer, and venue. Retu'
 - name: search
-  description: ''
+  description: 'Search SeatGeek events, optionally with their ticket listings. This is the first step
+    for any query that names a team / artist / venue / city / date / category.  Pick `detail` — this is
+    the one decision that matters: - `detail=''events''` (de'
 tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28

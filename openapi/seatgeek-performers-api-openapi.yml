@@ -94,6 +94,44 @@ paths:
           description: Performer not found
 components:
   schemas:
+    Taxonomy:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        parent_id:
+          type:
+          - integer
+          - 'null'
+        document_source:
+          type: object
+    Meta:
+      type: object
+      properties:
+        total:
+          type: integer
+        took:
+          type: number
+          description: Query execution time in milliseconds
+        page:
+          type: integer
+        per_page:
+          type: integer
+        geolocation:
+          type:
+          - object
+          - 'null'
+    PerformersResponse:
+      type: object
+      properties:
+        performers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Performer'
+        meta:
+          $ref: '#/components/schemas/Meta'
     Performer:
       type: object
       properties:
@@ -135,44 +173,6 @@ components:
           properties:
             event_count:
               type: integer
-    Meta:
-      type: object
-      properties:
-        total:
-          type: integer
-        took:
-          type: number
-          description: Query execution time in milliseconds
-        page:
-          type: integer
-        per_page:
-          type: integer
-        geolocation:
-          type:
-          - object
-          - 'null'
-    PerformersResponse:
-      type: object
-      properties:
-        performers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Performer'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    Taxonomy:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        parent_id:
-          type:
-          - integer
-          - 'null'
-        document_source:
-          type: object
   securitySchemes:
     clientId:
       type: apiKey

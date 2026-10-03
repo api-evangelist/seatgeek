@@ -114,15 +114,6 @@ paths:
           description: Venue not found
 components:
   schemas:
-    VenuesResponse:
-      type: object
-      properties:
-        venues:
-          type: array
-          items:
-            $ref: '#/components/schemas/Venue'
-        meta:
-          $ref: '#/components/schemas/Meta'
     Meta:
       type: object
       properties:
@@ -139,6 +130,15 @@ components:
           type:
           - object
           - 'null'
+    VenuesResponse:
+      type: object
+      properties:
+        venues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Venue'
+        meta:
+          $ref: '#/components/schemas/Meta'
     Venue:
       type: object
       properties:

@@ -119,6 +119,56 @@ paths:
                           type: number
 components:
   schemas:
+    Taxonomy:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        parent_id:
+          type:
+          - integer
+          - 'null'
+        document_source:
+          type: object
+    Venue:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        postal_code:
+          type: string
+        location:
+          type: object
+          properties:
+            lat:
+              type: number
+            lon:
+              type: number
+        url:
+          type: string
+          format: uri
+        score:
+          type: number
+        capacity:
+          type: integer
+        timezone:
+          type: string
+        has_upcoming_events:
+          type: boolean
     Performer:
       type: object
       properties:
@@ -160,56 +210,6 @@ components:
           properties:
             event_count:
               type: integer
-    Venue:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        slug:
-          type: string
-        address:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        country:
-          type: string
-        postal_code:
-          type: string
-        location:
-          type: object
-          properties:
-            lat:
-              type: number
-            lon:
-              type: number
-        url:
-          type: string
-          format: uri
-        score:
-          type: number
-        capacity:
-          type: integer
-        timezone:
-          type: string
-        has_upcoming_events:
-          type: boolean
-    Taxonomy:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        parent_id:
-          type:
-          - integer
-          - 'null'
-        document_source:
-          type: object
     Event:
       type: object
       properties:

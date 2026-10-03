@@ -141,22 +141,6 @@ paths:
           description: Event not found
 components:
   schemas:
-    Meta:
-      type: object
-      properties:
-        total:
-          type: integer
-        took:
-          type: number
-          description: Query execution time in milliseconds
-        page:
-          type: integer
-        per_page:
-          type: integer
-        geolocation:
-          type:
-          - object
-          - 'null'
     Venue:
       type: object
       properties:
@@ -194,19 +178,6 @@ components:
           type: string
         has_upcoming_events:
           type: boolean
-    Taxonomy:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        parent_id:
-          type:
-          - integer
-          - 'null'
-        document_source:
-          type: object
     Performer:
       type: object
       properties:
@@ -248,6 +219,35 @@ components:
           properties:
             event_count:
               type: integer
+    Taxonomy:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        parent_id:
+          type:
+          - integer
+          - 'null'
+        document_source:
+          type: object
+    Meta:
+      type: object
+      properties:
+        total:
+          type: integer
+        took:
+          type: number
+          description: Query execution time in milliseconds
+        page:
+          type: integer
+        per_page:
+          type: integer
+        geolocation:
+          type:
+          - object
+          - 'null'
     EventsResponse:
       type: object
       properties:

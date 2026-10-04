@@ -94,19 +94,6 @@ paths:
           description: Performer not found
 components:
   schemas:
-    Taxonomy:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        parent_id:
-          type:
-          - integer
-          - 'null'
-        document_source:
-          type: object
     Meta:
       type: object
       properties:
@@ -123,6 +110,19 @@ components:
           type:
           - object
           - 'null'
+    Taxonomy:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        parent_id:
+          type:
+          - integer
+          - 'null'
+        document_source:
+          type: object
     PerformersResponse:
       type: object
       properties:

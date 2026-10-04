@@ -141,122 +141,6 @@ paths:
           description: Event not found
 components:
   schemas:
-    Venue:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        slug:
-          type: string
-        address:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        country:
-          type: string
-        postal_code:
-          type: string
-        location:
-          type: object
-          properties:
-            lat:
-              type: number
-            lon:
-              type: number
-        url:
-          type: string
-          format: uri
-        score:
-          type: number
-        capacity:
-          type: integer
-        timezone:
-          type: string
-        has_upcoming_events:
-          type: boolean
-    Performer:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        slug:
-          type: string
-        type:
-          type: string
-        image:
-          type: string
-          format: uri
-        images:
-          type: object
-        taxonomies:
-          type: array
-          items:
-            $ref: '#/components/schemas/Taxonomy'
-        genres:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-              name:
-                type: string
-              slug:
-                type: string
-        score:
-          type: number
-        url:
-          type: string
-          format: uri
-        stats:
-          type: object
-          properties:
-            event_count:
-              type: integer
-    Taxonomy:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        parent_id:
-          type:
-          - integer
-          - 'null'
-        document_source:
-          type: object
-    Meta:
-      type: object
-      properties:
-        total:
-          type: integer
-        took:
-          type: number
-          description: Query execution time in milliseconds
-        page:
-          type: integer
-        per_page:
-          type: integer
-        geolocation:
-          type:
-          - object
-          - 'null'
-    EventsResponse:
-      type: object
-      properties:
-        events:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
-        meta:
-          $ref: '#/components/schemas/Meta'
     Event:
       type: object
       properties:
@@ -315,6 +199,122 @@ components:
           - cancelled
           - rescheduled
           - contingent
+    EventsResponse:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    Venue:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        postal_code:
+          type: string
+        location:
+          type: object
+          properties:
+            lat:
+              type: number
+            lon:
+              type: number
+        url:
+          type: string
+          format: uri
+        score:
+          type: number
+        capacity:
+          type: integer
+        timezone:
+          type: string
+        has_upcoming_events:
+          type: boolean
+    Meta:
+      type: object
+      properties:
+        total:
+          type: integer
+        took:
+          type: number
+          description: Query execution time in milliseconds
+        page:
+          type: integer
+        per_page:
+          type: integer
+        geolocation:
+          type:
+          - object
+          - 'null'
+    Performer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        image:
+          type: string
+          format: uri
+        images:
+          type: object
+        taxonomies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Taxonomy'
+        genres:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              slug:
+                type: string
+        score:
+          type: number
+        url:
+          type: string
+          format: uri
+        stats:
+          type: object
+          properties:
+            event_count:
+              type: integer
+    Taxonomy:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        parent_id:
+          type:
+          - integer
+          - 'null'
+        document_source:
+          type: object
   securitySchemes:
     clientId:
       type: apiKey

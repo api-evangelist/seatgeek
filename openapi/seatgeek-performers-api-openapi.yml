@@ -94,6 +94,15 @@ paths:
           description: Performer not found
 components:
   schemas:
+    PerformersResponse:
+      type: object
+      properties:
+        performers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Performer'
+        meta:
+          $ref: '#/components/schemas/Meta'
     Meta:
       type: object
       properties:
@@ -123,15 +132,6 @@ components:
           - 'null'
         document_source:
           type: object
-    PerformersResponse:
-      type: object
-      properties:
-        performers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Performer'
-        meta:
-          $ref: '#/components/schemas/Meta'
     Performer:
       type: object
       properties:

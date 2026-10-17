@@ -114,15 +114,22 @@ paths:
           description: Venue not found
 components:
   schemas:
-    VenuesResponse:
+    Meta:
       type: object
       properties:
-        venues:
-          type: array
-          items:
-            $ref: '#/components/schemas/Venue'
-        meta:
-          $ref: '#/components/schemas/Meta'
+        total:
+          type: integer
+        took:
+          type: number
+          description: Query execution time in milliseconds
+        page:
+          type: integer
+        per_page:
+          type: integer
+        geolocation:
+          type:
+          - object
+          - 'null'
     Venue:
       type: object
       properties:
@@ -160,22 +167,15 @@ components:
           type: string
         has_upcoming_events:
           type: boolean
-    Meta:
+    VenuesResponse:
       type: object
       properties:
-        total:
-          type: integer
-        took:
-          type: number
-          description: Query execution time in milliseconds
-        page:
-          type: integer
-        per_page:
-          type: integer
-        geolocation:
-          type:
-          - object
-          - 'null'
+        venues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Venue'
+        meta:
+          $ref: '#/components/schemas/Meta'
   securitySchemes:
     clientId:
       type: apiKey

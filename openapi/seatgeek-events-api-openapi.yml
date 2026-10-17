@@ -141,6 +141,68 @@ paths:
           description: Event not found
 components:
   schemas:
+    EventsResponse:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    Meta:
+      type: object
+      properties:
+        total:
+          type: integer
+        took:
+          type: number
+          description: Query execution time in milliseconds
+        page:
+          type: integer
+        per_page:
+          type: integer
+        geolocation:
+          type:
+          - object
+          - 'null'
+    Venue:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        postal_code:
+          type: string
+        location:
+          type: object
+          properties:
+            lat:
+              type: number
+            lon:
+              type: number
+        url:
+          type: string
+          format: uri
+        score:
+          type: number
+        capacity:
+          type: integer
+        timezone:
+          type: string
+        has_upcoming_events:
+          type: boolean
     Event:
       type: object
       properties:
@@ -199,68 +261,19 @@ components:
           - cancelled
           - rescheduled
           - contingent
-    EventsResponse:
-      type: object
-      properties:
-        events:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    Venue:
+    Taxonomy:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
-        slug:
-          type: string
-        address:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        country:
-          type: string
-        postal_code:
-          type: string
-        location:
-          type: object
-          properties:
-            lat:
-              type: number
-            lon:
-              type: number
-        url:
-          type: string
-          format: uri
-        score:
-          type: number
-        capacity:
-          type: integer
-        timezone:
-          type: string
-        has_upcoming_events:
-          type: boolean
-    Meta:
-      type: object
-      properties:
-        total:
-          type: integer
-        took:
-          type: number
-          description: Query execution time in milliseconds
-        page:
-          type: integer
-        per_page:
-          type: integer
-        geolocation:
+        parent_id:
           type:
-          - object
+          - integer
           - 'null'
+        document_source:
+          type: object
     Performer:
       type: object
       properties:
@@ -302,19 +315,6 @@ components:
           properties:
             event_count:
               type: integer
-    Taxonomy:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        parent_id:
-          type:
-          - integer
-          - 'null'
-        document_source:
-          type: object
   securitySchemes:
     clientId:
       type: apiKey
